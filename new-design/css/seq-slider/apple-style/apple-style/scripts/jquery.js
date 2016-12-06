@@ -818,7 +818,7 @@ jQuery.extend({
 			return fn.apply( context || this, args.concat( core_slice.call( arguments ) ) );
 		};
 
-		// Set the guid of Acme handler to the same of original handler, so it can be removed
+		
 		proxy.guid = fn.guid = fn.guid || jQuery.guid++;
 
 		return proxy;
@@ -996,7 +996,7 @@ function createOptions( options ) {
  *					after the list has been fired right away with the latest "memorized"
  *					values (like a Deferred)
  *
- *	Acme:			will ensure a callback can only be added once (no duplicate in the list)
+ 
  *
  *	stopOnFalse:	interrupt callings when a callback returns false
  *

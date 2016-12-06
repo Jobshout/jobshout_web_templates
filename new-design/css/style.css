@@ -1,9 +1,4 @@
-/*
-Template Name: Acme Business Template with Bootstrap 3
-Template Version: 1.0
-Author: cosmic
-Website:
-*/
+
 body {
     color: #797979;
     font-family: 'Lato', sans-serif;
@@ -1206,7 +1201,118 @@ ul.tag li a {
     height: 80px;
     width: 80px;
 }
-
+/*footer*/
+.footer {
+    background: #2E2E2E;
+    color: #fff;
+    padding:20px 0;
+    display: inline-block;
+    width: 100%;
+    font-weight: 300;
+}
+.footer h1 {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.footer address a { color: #b9003f }
+.tweet-box {
+    background: #505b71;
+    padding: 8px 15px;
+    border-radius: 1px;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+    border-bottom: 1px solid #636F79;
+    font-size: 14px;
+}
+.tweet-box:before {
+    background-color: #505b71;
+    border-color: #505b71;
+    border-image: none;
+    border-right: 1px none #505b71;
+    border-style: none;
+    content: "";
+    display: block;
+    height: 22px;
+    left: 60px;
+    position: absolute;
+    top: 32px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    width: 22px;
+}
+.tweet-box  a,
+.tweet-box i { color: #00adef }
+.tweet-box  a:hover { color: #b9003f }
+.tweet-box i {
+    font-size: 40px;
+    float: left;
+    margin-right: 15px;
+}
+.social-link-footer li {
+    float: right;
+    margin: 5px 10px 5px 0px;
+    padding-bottom: 5px;
+}
+.social-link-footer li a {
+    color: #b9003f;
+    background: #fff;
+padding: 7px;
+width: 35px;
+height: 35px;
+    border-radius: 50px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    float: left;
+    text-align: center;
+    font-size: 15px;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+.social-link-footer li a:hover {
+    background:#363636;
+	color:#fff;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+.copyright {
+    color: #fff;
+    padding-top: 15px;
+}
+.page-footer { padding: 0% 13% }
+.page-footer h1 { padding-left: 4% }
+ul.page-footer-list {
+    list-style: none;
+    padding: 0px 10px;
+}
+ul.page-footer-list li {
+    line-height: 35px;
+    border-bottom: 1px dashed #636F79;
+}
+ul.page-footer-list a { color: #fff }
+ul.page-footer-list li i { padding-right: 10px }
+.footer-small {
+    background-color: #8A8A8A;
+    margin-top: -6px;
+    padding-top: 5px;
+}
+.text-footer {
+    padding-left: 10px;
+    margin-left: 10px;
+}
+.text-footer p { text-align: left }
+.address p {
+    text-align: left;
+    margin-bottom: 10px;
+}
 /*slider css*/
 .main-slider {
     background: #475168;
