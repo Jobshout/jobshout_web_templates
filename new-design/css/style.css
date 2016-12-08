@@ -1,4 +1,9 @@
-
+/*
+Template Name: Acme Business Template with Bootstrap 3
+Template Version: 1.0
+Author: cosmic
+Website:
+*/
 body {
     color: #797979;
     font-family: 'Lato', sans-serif;
@@ -785,17 +790,21 @@ ul.about-flex-slides { margin-left: 0 }
     -webkit-transform: rotate(45deg);
     width: 15px;
 }
+
+
+
+
 .breadcrumbs {
-    background: #34495e;
+    background:#b9003f;
     color: #fff;
-    padding: 30px 0;
-    margin-bottom: 40px;
+    padding: 24px 0;
+    margin-bottom: 25px;
 }
 .breadcrumb {
     margin-bottom: 0;
     background: none;
 }
-.breadcrumb li a { color: #b9003f }
+.breadcrumb li a { color: #fff }
 .breadcrumb li.active { color: #fff }
 .breadcrumbs h1 {
     font-size: 24px;
@@ -823,6 +832,26 @@ section.contact-infos {
 /*about us*/
 .about-us img { width: 100% }
 .about ul { line-height: 25px }
+
+
+.about ul li {
+    background-color: #ECECEC;
+    margin-bottom: 7px;
+    font-size: 14px;
+    padding-left: 10px;
+    line-height: 31px;
+    border-radius: 4px;
+}
+
+
+.about ul li:hover {
+	background-color:#b9003f;
+	color:#fff;
+}
+	
+
+
+
 .carousel-control.left,
 .carousel-control.right {
     background: none;
@@ -1155,10 +1184,15 @@ section.contact-infos {
 .st-view { margin-top: 20px }
 .st-view ul li { margin-bottom: 5px }
 .blog-side-item h3 {
-    margin-top: 30px;
-    color: #475268;
+ 
+    margin-top: 13px;
+    color: #fff;
     font-size: 18px;
+    background-color: #373737;
+    padding: 10px;
+    margin-bottom: 5px;
 }
+
 .blog-side-item ul li {
     margin-bottom: 5px;
     border-bottom: 1px solid #efefef;
@@ -2975,4 +3009,29 @@ div.header h3{
     position: absolute;
     left:50%;
     top:-4px;
+}
+
+
+.content{
+}
+
+
+.content h4{
+	background-color: #2E2E2E;
+padding: 10px;
+border-radius: 3px;
+color: #fffffe;
+}
+
+.content ul{
+padding-left: 14px;
+}
+
+.content ul li{
+line-height: 28px;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
+	background-color:#373737;
+	border: 1px solid #ddd;
 }
