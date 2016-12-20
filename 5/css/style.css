@@ -2616,15 +2616,6 @@ ul.icons-list li i {
   	-webkit-box-shadow: 0 0 20px rgba(0,0,0,.04) inset;
 }
 
-.classic-testimonials .testimonial-content:before {
-	content: "\201C";
-	font-weight: 300;
-	position: absolute;
-	font-size: 30px;
-	opacity: 0.5;
-	top: 8px;
-	left: 6px;
-}
 
 
 .classic-testimonials .testimonial-author {
@@ -2815,12 +2806,12 @@ ul.icons-list li i {
 
 .classic-title {
 	margin-bottom: 16px;
-	padding-bottom: 8px;
-	border-bottom: 1px solid #eee;
-    font-weight: 300;
-	color: #279ee9;
-	font-size:31px;
-	margin-top:45px;
+padding-bottom: 4px;
+border-bottom: 1px solid #eee;
+font-weight: 300;
+color: #279ee9;
+font-size: 24px;
+margin-top: 45px;
 }
 
 
@@ -3905,6 +3896,7 @@ ul.post-meta li, ul.post-meta li a {
 
 .sidebar {
     margin-bottom: 30px;
+    margin-top: 0px;
 }
 
 .sidebar a {
@@ -3958,12 +3950,15 @@ ul.post-meta li, ul.post-meta li a {
 }
 
 .sidebar .widget h4 {
-	text-transform: uppercase;
-	padding-bottom: 8px;
-    margin-bottom: 16px;
-	font-size: 14px;
-	font-weight: 500;
-	position: relative;
+	
+	
+	margin-bottom: 16px;
+padding-bottom: 4px;
+border-bottom: 1px solid #eee;
+font-weight: 300;
+color: #279ee9;
+font-size: 24px;
+
 }
 
 .sidebar .widget h4 .head-line {
@@ -4970,7 +4965,7 @@ ul.footer-nav li a:hover {
 
 .touch-carousel .owl-controls .owl-buttons {
 	position: absolute;
-	top: -50px;
+	top: -42px;
 	right: 2px;
 }
 
@@ -5901,7 +5896,58 @@ padding-top: 9px;
 }
 
 
+.quick-srch-blk{
+	background-color: #279ee9;
+padding: 13px;
+border-radius:4px;
+}
 
+.quick-srch-blk label{
+	color:#fff;
+}
+
+.quick-srch-blk a{
+	color:#fff;
+}
+
+.quick-srch-blk a:hover{
+	color:#000!important;
+}
+
+
+.btn-danger {
+   color: #fff;
+background-color: #f56709;
+border-color: #f56709;
+border-radius: 1px;
+}
+
+.btn-danger:hover{
+	background-color:#000;
+	border-color:#000;
+}
+
+
+.job-by-sector ul{
+	
+}
+
+.job-by-sector li{
+	background:#efefef;
+	border-radius:4px;
+	margin-bottom: 5px;
+line-height: 18px;
+padding: 8px 15px;
+	
+	
+}
+
+.jobBlk{
+	background-color: aliceblue;
+padding: 11px;
+border-radius: 4px;
+margin-bottom: 10px;
+}
 
 
 
