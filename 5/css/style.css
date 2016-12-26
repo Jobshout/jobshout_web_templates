@@ -5958,5 +5958,93 @@ margin-bottom: 10px;
 }
 
 
+.site-map-list {
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+}
+
+
+.site-map-list li{
+	width:23%;
+	float:left;
+	background:url(../images/job-cat-bullet.jpeg) no-repeat left 8px;
+	padding-left:12px;
+	margin-bottom:8px;
+	padding-right:2%;
+	display:inline-block;
+	
+}
+.site-map-list li a{
+	color:#000;
+	float:left;
+	display:inline-block;
+	
+}
+
+.site-map-hding{
+	font-weight:bold;
+	color:#000;
+	font-size:14px;
+	margin-bottom:15px;
+}
+.site-map-list-2{
+	margin-left:0px!important;
+	padding-left:0px!important;
+}
+.site-map-list-2 li{
+	width:48%;
+	float:left;
+	
+	background:url(../images/job-cat-bullet.jpeg) no-repeat left 8px;
+	
+	
+	padding-left:12px;
+	margin-bottom:8px;
+	padding-right:2%;
+	display:inline-block;
+	
+}
+.site-map-list-2 li a{
+	color:#000;
+	float:left;
+	display:inline-block;
+	
+}
+@media (min-width:992px) and (max-width:1199px) {
+	
+	.site-map-list-2 li{
+	width:100%!important;
+	}
+	.site-map-list li{
+	width:100%!important;
+	}
+	
+}
+
+@media (min-width:769px) and (max-width:991px) {
+	.job-cat-list li{
+		width:48%!important;
+	}
+	.site-map-list-2 li{
+	width:100%!important;
+	}
+	.site-map-list li{
+	width:100%!important;
+	}
+
+}
+@media (max-width:768px) {
+	
+	.site-map-list-2 li{
+	width:100%!important;
+	}
+	.site-map-list li{
+	width:100%!important;
+	}
+		
+}
+
+
+
 
 
