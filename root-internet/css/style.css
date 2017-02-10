@@ -680,6 +680,14 @@ background:#f9f9f9; margin-top:95px; border-bottom: 1px solid #ddd;
 	color:#fff; font-size:80px!important; padding:10px 0px;
 }
 
+#accordion p{
+	padding:15px;
+}
+
+#accordion h4{
+	padding-left:15px;
+}
+
 
 	
 	
