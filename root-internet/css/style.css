@@ -689,5 +689,64 @@ background:#f9f9f9; margin-top:95px; border-bottom: 1px solid #ddd;
 }
 
 
+
+
+.glyphicon{
+	padding-right:7px;
+}
+
+    ul.treeMenu 
+    {
+        margin-left: -30px;
+        font-size: 11pt;
+    }
+
+    .treeMenu li {
+     color: #fff;
+margin-left: -15px;
+list-style-type: none;
+cursor: pointer;
+background-color: #2C3E50;
+margin-bottom: 10px;
+padding: 12px;
+font-size: 15px;
+border-radius: 4px;
+    }
+	
+	.treeMenu li:hover {
+		color:#feb10d;
+	}
+
+    .treeMenu li ul 
+    {
+        display: none;
+        margin-top: 10px;
+        margin-left: -25px;
+    }
+   
+    
+    .treeMenu > li > ul > li
+    {
+        border-left: 1px dotted #cccccc;
+    }
+
+    .treeMenu li a {
+            color: #fff;
+            font-weight: normal;
+    }
+	
+	.treeMenu li a:hover {
+		color:#feb10d;
+	}
+
+    .treeMenu li a.selectedDoc {
+            background-color: #e3e3e3;
+    }
+    
+    .treeMenu li span.pipe 
+    {
+        color: #cccccc;
+    }
+
 	
 	
