@@ -683,15 +683,15 @@ ul.dropdown-menu { border: none }
 }
 /*search*/
 .search2 {
-   width: 150px;
-padding: 7px 10px 8px 10px;
-color: #fff;
-margin-left: 10px;
-background-color: #3490d7;
-text-align: left;
-border-radius: 60px;
-border: none;
-	
+    width: 150px;
+    padding: 7px 10px 8px 10px;
+    color: #000!important;
+    margin-left: 10px;
+    background-color: #fff;
+    text-align: left;
+    border-radius: 60px;
+    border: none;
+    border: 1px solid #ddd;
 }
 
 

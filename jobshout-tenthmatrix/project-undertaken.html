@@ -55,7 +55,9 @@
     </header>
 	<div CLASS="navigationbcg" >
 	<div CLASS="container ">
+	
 	<nav> 
+	<a id="resp-menu" class="responsive-menu" href="#" STYLE="text-align:center;"><i class="fa fa-reorder" STYLE="font-size:20px;"></i></a>
     		<ul class="menu">
 			
 							<li>
@@ -94,7 +96,7 @@
 								<a href="#">Services <i class="fa fa-angle-down"></i></a>
 								 <ul class="sub-menu">
 								 	
-								 			<li><a href="#">Customer portal <i class="fa fa-arrow-right" style="float:right;"></i></a><ul><li><a href="customer-portal.html">Benefits of Online Customer Portal?</a></li><li><a href="https://crm.tenthmatrix.co.uk/hit/sign-in.shtml" target="_blank">Sign In</a></li></ul></li>
+								 			<li><a href="#">Customer portal <i class="fa fa-arrow-right" style="float:right;"></i></a><ul><li><a href="customer-portal">Benefits of Online Customer Portal?</a></li><li><a href="https://crm.tenthmatrix.co.uk/hit/sign-in.shtml" target="_blank">Sign In</a></li></ul></li>
 								 	
 								 			<li><a href="#">App <i class="fa fa-arrow-right" style="float:right;"></i></a><ul>
             				<li><a href="mobile-iphone-and-ipad-apps.html">iPhone and iPad Apps</a></li>
@@ -457,6 +459,26 @@ Tenthmatrix Information Systems Ltd. </p>
     <!-- footer end -->
 
     <script src="js/jquery-1.8.3.min.js"></script>
+	
+	<script>
+$(document).ready(function(){ 
+	var touch 	= $('#resp-menu');
+	var menu 	= $('.menu');
+ 
+	$(touch).on('click', function(e) {
+		e.preventDefault();
+		menu.slideToggle();
+	});
+	
+	$(window).resize(function(){
+		var w = $(window).width();
+		if(w > 767 && menu.is(':hidden')) {
+			menu.removeAttr('style');
+		}
+	});
+	
+});
+</script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/hover-dropdown.js"></script>  
     <script type="text/javascript" src="assets/bxslider/jquery.bxslider.js"></script>
