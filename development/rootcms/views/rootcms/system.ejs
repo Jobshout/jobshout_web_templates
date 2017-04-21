@@ -1,0 +1,122 @@
+<% include include/main-header %>
+
+<link href="plugins/datetime-picker/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+<style>
+.box-primary h4 {
+    border-bottom: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 20px;
+    margin: 7px 5px 0 0;
+    padding: 9px;
+}
+</style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">	
+   		<!-- Header Starts here-->
+  		<% include include/header %>
+  		<!-- Header Ends here-->
+  		
+  		<!-- Sidebar Starts Here-->
+  			<% include include/sidebar %>
+    	<!-- Sidebar Ends Here-->
+		<div class="content-wrapper">
+    	  	<!-- Content Header (Page header) -->
+    		<section class="content-header">
+      			<h1><% if (typeof contentObj.name !== 'undefined' && contentObj.name !== null) { %><%= contentObj.name %><% } else{	%>Add new<% }%> <small>Organisation</small></h1>
+      			<ol class="breadcrumb">
+        			<li><a href="<%= backendDirectory %>/index"><i class="fa fa-dashboard"></i> Home</a></li>
+        			<li class="active">Organisation</li>
+      			</ol>
+    		</section>	
+    		<section class="content">
+      			<div class="row">
+            				<div class="panel-body no-padding-top bg-white"> 
+            					<% if (typeof queryStr !== 'undefined' && queryStr !== null) {
+    								if(queryStr.error_msg) {	%>
+									<div class="alert alert-danger alert-dismissable">
+             							<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                						<%= queryStr.error_msg %>
+            						</div>
+            						<% }
+           							if(queryStr.success_msg) {	%>
+										<div class="alert alert-success alert-dismissable">
+             								<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                							<%= queryStr.success_msg %>
+            							</div>
+            						<%	}
+            					}	%>
+            					<form class="form-horizontal" action="<%= backendDirectory %>/save/system" method="POST" id="contentForm">
+            						<% include system_form %>
+            					</form>
+              				</div>
+            	</div>
+      		</section>
+    		<!--//body content--> 
+  		</div>
+  		<!--//Main Content--> 
+	
+		<!-- Footer Starts Here-->
+			<% include include/footer %>
+		<!-- Footer Ends Here-->
+</div>
+<!-- Page-Level Plugin Scripts-->
+<script src="js/jquery.validate.js"></script>
+<script type="text/javascript" src="plugins/datetime-picker/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+
+<script type="text/javascript">
+	$('.form_datetime').datetimepicker({
+		weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0,
+		pickerPosition: "bottom-left",		
+        showMeridian: 1,
+		pickTime: 0
+	});
+
+$(function () {
+	<% if (typeof contentObj._id == 'undefined' && contentObj._id == null) { %>
+		$("input[name=status][value=1]").prop("checked",true);
+	<% } %>
+	
+	// validate form on keyup and submit
+		$("#contentForm").validate({
+			ignore: "",
+			onkeyup: false,
+			errorClass: 'error',
+			validClass: 'valid',
+			errorElement: "em",
+			errorPlacement: function(error, element) {
+				if (element.attr("name") == "established_on" ) {
+                	$(element).closest('div').after(error);
+            	}else{
+					$(element).closest('div').append(error);
+				}
+			},
+			onfocusout: false,
+			invalidHandler: function(form, validator) {
+				var errors = validator.numberOfInvalids();
+				
+				if (errors) {                    
+					validator.errorList[0].element.focus();
+				}
+			},
+			rules: {
+				name: { required: true },
+				address: { required: true },
+				telephone: { required: true },
+				email: { required: true, email : true },
+				organisation_type : { required: true },
+			},
+			submitHandler: function(form) {
+				//save data as json in data field, use dataAsJson function to populate that field
+ 				dataAsJson('contentForm', form);
+ 			}
+		});	
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<% if(displayCookieBool){ %>
+
+<div id="cookie_law_notice" style="font-size: 10px; height:50px; width:950px; margin-right:auto; margin-left:auto; font:'Courier New', Courier, monospace; color:#000; background-color:#FFF; border:solid; border-width:thin; padding-left:20px; position:absolute; top:66px; left:192px;">
+<strong>
+The Jobshout website would like to place cookies on your computer to give you a better user experience. To find out more about the cookies, see our privacy notice
+<a title="Jobshout Privacy policy notice" target="_blank" href="privacy.html">privacy notice.</a>
+</strong>
+
+<div>
+<input id="ctlCookiesBanner_chkAcceptCookie" type="checkbox" onClick="" name="chkAcceptCookie">
+<label for="ctlCookiesBanner_chkAcceptCookie">I accept cookies from this site.</label><span id="error" style="display: none"></span>
+
+<input id="ctlCookiesBanner_btnAcceptCookie" onClick="$.__UCSSet()" class="button" type="submit" value="Continue" name="btnAcceptCookie" style="margin: 5px; padding: 4px; background-color:#666; color: #fff">
+</div>
+
+</div>
+
+<script type="text/javascript">
+
+$(function(){
+var ucsStr = $.cookie("ucs");
+if(ucsStr != null || ucsStr == 'ok') {
+$('#cookie_law_notice').hide();
+} else {
+$('#cookie_law_notice').show();
+}
+});
+	
+$.__UCSSet = function()
+{
+if ($('#ctlCookiesBanner_chkAcceptCookie').attr("checked")) {
+$('#error').html(' Enjoy!');
+$('#cookie_law_notice').hide();
+$.cookie('ucs', 'ok',  { expires : 1000 }, { path: '/' }); //available for any dir
+
+} else {
+$('#error').html(' Please check the checkbox to agree with <a title="Jobshout cookie and privacy policy" target="_blank" href="privacy.html">Jobshout cookie and privacy policy.</a>');
+$('#error').show();
+}
+}
+
+</script>
+    
+<% } %>
