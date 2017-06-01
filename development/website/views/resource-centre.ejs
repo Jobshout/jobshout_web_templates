@@ -3,34 +3,56 @@
 var pageNum=1;
 if (typeof queryStr.page !== "undefined" && queryStr.page!="" && queryStr.page!="") { 
 pageNum=queryStr.page;
- } %>
-<style>
-.blog-item h1 {
-	margin-top:0px!important;
-}
-</style>
+} 
+%>
 </head>
 <body>
- 	<div id="wrapper">
-		<% include include/header %>
-		<div id="contentContainer" class="full-width">
-			<!-- cookie law uk notice -->
-			<% include include/cookie-law-notice %>
-    		<!-- cookie law uk notice -->
-			<h1>Technical Resource Centre</h1>
-			<div id="newsData">
-
-				<!--BSW 20120216 jquery to populate content on load / while page navigation-->
-			</div>
-			<div style="text-align:center;margin-top:20px;" id="img_loading_div">
+	<% include include/header %>
+	
+	 <!--breadcrumbs start-->
+    <div class="breadcrumbs">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-sm-4">
+            <h1>Technical Resource Centre </h1>
+          </div>
+          <div class="col-lg-8 col-sm-8">
+            <ol class="breadcrumb pull-right">
+              <li>
+                <a href="/index" title="Home">
+                  Home
+                </a>
+              </li>
+              <li class="active">Technical Resource Centre</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--breadcrumbs end-->
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 ">
+					<div id="newsData">
+					
+					</div>
+					<div style="text-align:center;margin-top:20px;" id="img_loading_div">
 						Loading...<br /> <img id="imgAjaxLoading" src="images/loading-1.gif"" width="109" height="25" style="border-width: 0px;">
+					</div>
+				</div>
+				<!--BSW 20120216 jquery to populate content on load / while page navigation-->
+				<div class="col-lg-3 ">
+					<div class="blog-side-item">
+						<div class="blog-post print_posts"></div>
+					</div>
+        		</div>
 			</div>
 		</div>
-	</div>
 
    	<!--footer start-->
     <% include include/footer %>
     <!--footer end-->
+
 <script>
 var xhrStatus;
 var searchkeyword="", typeStr="resource-centre", currentPageNum='<%= pageNum %>';
@@ -44,7 +66,7 @@ $(document).ready(function() {
 	load_data();
 });
 
-function timeConverter(UNIX_timestamp){
+function resourceTimeConverter(UNIX_timestamp){
   var a = new Date(UNIX_timestamp * 1000);
   var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   var year = a.getFullYear();
@@ -116,7 +138,7 @@ function applyPagination(total_count,displayResultsNum){
 		var jsonRow="/search-results?start="+start+"&s=&type="+typeStr+"&limit="+pageSize,
 		xhrStatus=$.getJSON(jsonRow,function(html){
 			if(html.error){
-				$("#newsData").before('<div class="alert" style="text-align:center"><h2>No results found!</h2></div>');
+				$("#newsData").before('<div class="alert alert-danger">No results found!</div>');
 			}else{
 				
 				if(html.total){
@@ -140,7 +162,7 @@ function applyPagination(total_count,displayResultsNum){
                       	bodyStr=bodyStr.replace(/<\/?[^>]+(>|$)/g, "");
                       	bodyStr=bodyStr.substr(0, 250);
                       	
-                      	contentHtml+=timeConverter(row.Created);
+                      	contentHtml+=resourceTimeConverter(row.Created);
             			contentHtml+='<h2><a href="/'+row.Code+'">'+row.Document+'</a></h2>	';
               			contentHtml+='<br>';
                 		contentHtml+='<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';

@@ -177,7 +177,7 @@ metaDescriptionStr= document_details.MetaTagDescription;
   			 </div>
   		</div></div>
       		<%	}else{	%>
-      			<div CLASS="gray-box" STYLE="margin-bottom:0px;"><div CLASS="container content">
+      			<div CLASS="container content">
       				<div class="row"><div CLASS="col-md-12">
       			<% if (typeof document_details.Title !== 'undefined' && document_details.Title !== null && document_details.Title != "") { %>
       				<div><h4><%= document_details.Title %></h4></div>
@@ -203,7 +203,7 @@ metaDescriptionStr= document_details.MetaTagDescription;
 	  			} %>
 	  			<% include include/linkedin_share_button %>
 	  				</div></div>
-				</div></div>
+				</div>
 			<% }	%>
 	  		
 	<!--footer start-->
@@ -255,9 +255,9 @@ $(document).ready(function() {
     				$("#postBtn").prop("disabled",false);
     				$('#blogComment').trigger("reset");
 					if(response.success){
-						$("#blogComment").before('<div class="alert" style="font-size:16px; color: green;">'+response.success+'</div>');
+						$("#blogComment").before('<div class="alert alert-danger">'+response.success+'</div>');
 					}else if(response.error){
-						$("#blogComment").before('<div class="alert"  style="font-size:16px; color: #CC0000;">'+response.error+'</div>');
+						$("#blogComment").before('<div class="alert alert-success">'+response.error+'</div>');
 					}
 				}
 			});
@@ -285,12 +285,12 @@ $(document).ready(function() {
 				}
 				$.each(html.aaData, function(i,row){
 					if(row.Code!=""){
-						var defaultImg="images/welcome.jpg";
+						var defaultImg="images/no-image.png";
 						if(row.virtualFields){
 							defaultImg=row.virtualFields['image_path'];
 						}
 						contentHtml+='<div class="media">';
-                		contentHtml+='<a class="pull-left" href="/'+row.Code+'" title="'+row.Document+'"><img style="height: 73px; float: left;" onerror="this.src=\'images/welcome.jpg\'" src="'+defaultImg+'"></a>';
+                		contentHtml+='<a class="pull-left" href="/'+row.Code+'" title="'+row.Document+'"><img style="height: 73px; float: left;" onerror="this.src=\'images/no-image.png\'" src="'+defaultImg+'"></a>';
                 		contentHtml+='<div class="media-body">';
                   		contentHtml+='<h5 class="media-heading">';
                     	contentHtml+='<a href="/'+row.Code+'" title="'+row.Document+'">'+timeConverter(row.created)+'</a>';

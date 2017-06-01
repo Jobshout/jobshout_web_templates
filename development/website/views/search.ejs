@@ -156,7 +156,7 @@ function load_more(){
 		var jsonRow="/search-results?start="+start+"&s="+searchkeyword+"&type="+typeStr+"&limit="+pageSize,
 		xhrStatus=$.getJSON(jsonRow,function(html){
 			if(html.error){
-				var msg='<h2>No search results found!</h2>';
+				var msg='<div class="alert alert-danger">No search results found!</div>';
 				$.updateContent(typeStr,msg);
 			}else{
 				if(html.total){
