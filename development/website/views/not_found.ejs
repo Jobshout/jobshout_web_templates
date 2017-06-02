@@ -14,7 +14,8 @@
 					<li>If you typed in the address, check your spelling. Could just be a typo.</li>
 					<li>Go to <a href="/">main page.</a></li>
 					<!--<li>Get to know us a little better - <a href="/about">About us</a>, or visit our full website Site Map here.</li>
-					--><li><p class="buttons"> <a class="btn btn-info" href="http://www.facebook.com/pages/Jobshout/139675936083142" title="Visit us on Facebook"><span>Visit us on Facebook</span></a> <a class="btn btn-info" href="http://twitter.com/#!/jobshoutnews" target="_blank" title="Follow our tweets"><span>Follow our tweets</span></a> </p></li>
+					--><li><p class="buttons" id="followLink" style="display:none;"> <a class="btn btn-info" href="http://www.facebook.com/pages/Jobshout/139675936083142" title="Visit us on Facebook">Visit us on Facebook</a>
+					<a class="btn btn-info" href="http://twitter.com/#!/jobshoutnews" target="_blank" title="Follow our tweets">Follow our tweets</a> </p></li>
 				</ul>
 			</div>
 		</div></div>
@@ -22,5 +23,33 @@
 	<!--footer start-->
     <% include include/footer %>
     <!--footer end-->
+<script>
+function get_follow_us()	{
+	$('#followLink').hide();
+	var val= "['jobshout-facebook', 'jobshout-twitter']";
+	var jsonRow="/fetch_tokens_content?code="+val;
+	$.getJSON(jsonRow,function(html){
+		if(html.aaData){
+			var contentHtml="";
+			$.each(html.aaData, function(i,row){
+				if(row.code=="jobshout-facebook"){
+					contentHtml+='&nbsp;<a class="btn btn-info" href="'+row.token_content+'" target="_blank">Visit us on Facebook</a>';
+				}
+				if(row.code=="jobshout-twitter"){
+					contentHtml+='&nbsp;<a class="btn btn-info" href="'+row.token_content+'" target="_blank">Follow our tweets</i></a>';
+				}
+			});
+			if(contentHtml!=""){
+				$('#followLink').show();
+				$("#followLink").html(contentHtml);
+			}
+		}
+	});
+}
+$(document).ready(function() {
+	//fetch follow us content
+	get_follow_us();
+});
+</script>
   </body>
 </html>

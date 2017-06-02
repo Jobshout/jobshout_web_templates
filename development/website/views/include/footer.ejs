@@ -54,11 +54,8 @@
     <footer class="footer-small">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-sm-6 pull-right">
-                    <ul class="social-link-footer list-unstyled">
-                        <li class="wow flipInX" data-wow-duration="2s" data-wow-delay=".1s"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li class="wow flipInX" data-wow-duration="2s" data-wow-delay=".2s"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li class="wow flipInX" data-wow-duration="2s" data-wow-delay=".4s"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                <div class="col-lg-6 col-sm-6 pull-right" id="follow_us_tokens">
+                    <ul class="social-link-footer list-unstyled" id="follow_us_data">
                                              
                     </ul>
                 </div>
@@ -89,42 +86,79 @@
     <script src="js/jquery.validate.js"></script>
 <script>
 function timeConverter(UNIX_timestamp, dateformat){
-  var a = new Date(UNIX_timestamp * 1000);
-  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  var year = a.getFullYear();
-  var month = months[a.getMonth()];
-  var date = a.getDate();
-  if(dateformat=="date"){
-  	return  date;
-  } else if(dateformat=="month"){
-  	return  month;
-  } else {
-  	return  date+' '+month+' '+year;
-  }
+	var a = new Date(UNIX_timestamp * 1000);
+	var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+	var year = a.getFullYear();
+	var month = months[a.getMonth()];
+	var date = a.getDate();
+	if(dateformat=="date"){
+  		return  date;
+  	} else if(dateformat=="month"){
+  		return  month;
+  	} else {
+  		return  date+' '+month+' '+year;
+  	}
 }
 
-	$("#contactForm").validate({
-		rules: {
-			name: "required",
-			email: {
-				required: true,
-				email: true
-			},
-			comment: "required",
-			blog_uuid : "required"
+$("#contactForm").validate({
+	rules: {
+		name: "required",
+		email: {
+			required: true, email: true
 		},
-		messages: {
-			name: "Please enter your name",
-			email: {
-				required: "Please enter your E-mail",
-				email: "Please enter valid E-mail"
-			},
-			comment: "Please leave your message!",
-			blog_uuid: "Required Field!"
+		comment: "required",
+		blog_uuid : "required"
+	},
+	messages: {
+		name: "Please enter your name",
+		email: {
+			required: "Please enter your E-mail",
+			email: "Please enter valid E-mail"
+		},
+		comment: "Please leave your message!",
+		blog_uuid: "Required Field!"
+	}
+});
+	
+function fetch_follow_us()	{
+	$('#follow_us_tokens').hide();
+	var val= "['jobshout-facebook', 'jobshout-linkedin', 'jobshout-google-plus']";
+	var jsonRow="/fetch_tokens_content?code="+val;
+	$.getJSON(jsonRow,function(html){
+		if(html.aaData){
+			var contentHtml="";
+			$.each(html.aaData, function(i,row){
+				var iconUi='';
+				switch (row.code) {
+    				case 'jobshout-linkedin':
+       				iconUi = '<i class="fa fa-linkedin"></i>';
+        			break;
+        			case 'jobshout-facebook':
+       				iconUi = '<i class="fa fa-facebook"></i>';
+        			break;
+        			case 'jobshout-twitter':
+       				iconUi = '<i class="fa fa-twitter"></i>';
+        			break;
+        			case 'jobshout-youtube':
+       				iconUi = '<i class="fa fa-youtube"></i>';
+        			break;    
+        			case 'jobshout-google-plus':
+       				iconUi = '<i class="fa fa-google-plus"></i>';
+        			break;    	
+				}
+				contentHtml+='<li><a href="'+row.token_content+'" target="_blank">'+iconUi+'</i></a></li>';
+			});
+			if(contentHtml!=""){
+				$('#follow_us_tokens').show();
+				$("#follow_us_data").html(contentHtml);
+			}
 		}
 	});
-
+}
 $(document).ready(function() {
+	//fetch follow us content
+	fetch_follow_us();
+	
 	$.getJSON("/fetchTweets",function(html){
 		var contentHtml="";
 		if(html.error){

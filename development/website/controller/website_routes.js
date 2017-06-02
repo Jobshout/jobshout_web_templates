@@ -222,9 +222,7 @@ app.get('/search-results', function(req, res) {
       			if(document!=""){
       				
       				if(req.query.showResultsNum){
-      					console.log(req.showResultsNum)
       					db.collection('documents').find(obj).limit(parseInt(req.query.showResultsNum)).count(function (e, count) {
-      						console.log(count)
       						var myObj = new Object();
       						myObj["total"]   = count;
       						myObj["aaData"]   = document;
@@ -417,6 +415,23 @@ app.post('/savewiusers', (req, res) => {
   	}
 })
 
+// fetch_tokens_content : to fetch tokens content
+app.get('/fetch_tokens_content', function(req, res) {
+	var myObj = new Object();
+	if(req.query.code && req.query.code!=""){
+		var obj = req.query.code;
+		obj = obj.replace(/'/g, '"');
+		obj = JSON.parse(obj);
+		db.collection('tokens').find({ 'code': { $in: obj }, status: { $in: [ 1, "1" ] } }, {'code' : 1,'token_content' : 1}).toArray(function(avaErr, documents) {
+      		myObj["aaData"]   = documents;
+      		res.send(myObj);
+   		});
+    }	else{
+    	myObj["error"]   = 'Please pass the parameter!';
+      	res.send(myObj);
+    }
+});
+
 //content page
 app.get('/fetchTweets', function(req, res) {
 	var tweetsObj = new Object();
@@ -433,7 +448,6 @@ app.get('/fetchTweets', function(req, res) {
   		if (!error) {
     		tweetsObj["aaData"]   = tweets;
 		} else	{
-			console.log(error)
   			tweetsObj["error"]   = "Please specify your email address!";
 		}
   		res.send(tweetsObj);
