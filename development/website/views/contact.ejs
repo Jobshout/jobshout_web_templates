@@ -1,7 +1,7 @@
 <%  include include/main-header %>
 <% var tokenContentStr="";
 if (typeof address_token !== 'undefined' && address_token !== null && address_token !="") {
-	var tokenContentStr = JSON.parse(address_token.token_content);  
+	var tokenContentStr = JSON.parse(address_token.token_content);
 }
 %>
 </head>
@@ -46,24 +46,24 @@ if (typeof address_token !== 'undefined' && address_token !== null && address_to
 			<section class="tab wow fadeInLeft" STYLE="margin-bottom:15px;">
 				 <header class="panel-heading tab-bg-dark-navy-blue">
               		<ul class="nav nav-tabs nav-justified ">
-               		<% if (typeof tokenContentStr['uk_head_office'] !== 'undefined' && tokenContentStr['uk_head_office'] !== null && tokenContentStr['uk_head_office']!="") {	%>
+               		<% if (typeof tokenContentStr['uk'] !== 'undefined' && tokenContentStr['uk'] !== null && tokenContentStr['uk']!="") {	%>
         				<li class="active"><a href="#tabs-1" data-toggle="tab">UK Head Office</a></li>
         			<% } %>
          			<% if (typeof tokenContentStr['uk_registered_office'] !== 'undefined' && tokenContentStr['uk_registered_office'] !== null && tokenContentStr['uk_registered_office']!="") { %>
         				<li><a data-toggle="tab" href="#tabs-2">UK Registered Office</a></li>
         			<% } %>
-       	 			<% if (typeof tokenContentStr['india'] !== 'undefined' && tokenContentStr['india'] !== null && tokenContentStr['india']!="") { %>
+       	 			<% if (typeof tokenContentStr['ambala'] !== 'undefined' && tokenContentStr['ambala'] !== null && tokenContentStr['ambala']!="") { %>
         				<li><a data-toggle="tab" href="#tabs-3">India Support Centre</a></li>
           			<% } %>
-          			<% if (typeof tokenContentStr['australia'] !== 'undefined' && tokenContentStr['australia'] !== null && tokenContentStr['australia']!="") { %>
-        				<li><a href="#tabs-4" data-toggle="tab">Australia Office</a></li>
+          			<% if (typeof tokenContentStr['Sydney'] !== 'undefined' && tokenContentStr['Sydney'] !== null && tokenContentStr['Sydney']!="") { %>
+        				<li><a href="#tabs-4" data-toggle="tab">Sydney Office</a></li>
          			<% } %>
                		</ul>
             	</header>
             	<div class="panel-body">
               		<div class="tab-content tasi-tab">
-              			<% if (typeof tokenContentStr['uk_head_office'] !== 'undefined' && tokenContentStr['uk_head_office'] !== null && tokenContentStr['uk_head_office']!="") {
-    						var addrDetails= tokenContentStr['uk_head_office']	%>
+              			<% if (typeof tokenContentStr['uk'] !== 'undefined' && tokenContentStr['uk'] !== null && tokenContentStr['uk']!="") {
+    						var addrDetails= tokenContentStr['uk']	%>
 			  			<div id="tabs-1" class="tab-pane fade in active">
 							<div CLASS="row">
 								<div class="col-lg-5 col-sm-5 address">
@@ -159,8 +159,8 @@ if (typeof address_token !== 'undefined' && address_token !== null && address_to
 							 <% } %> 
 							</div></div>
                 		<% } %>
-                		<% if (typeof tokenContentStr['india'] !== 'undefined' && tokenContentStr['india'] !== null && tokenContentStr['india']!="") {
-    						var addrDetails= tokenContentStr['india']	%>
+                		<% if (typeof tokenContentStr['ambala'] !== 'undefined' && tokenContentStr['ambala'] !== null && tokenContentStr['ambala']!="") {
+    						var addrDetails= tokenContentStr['ambala']	%>
                 			<div id="tabs-3" class="tab-pane fade"><div CLASS="row">
 								<div class="col-lg-5 col-sm-5 address">
           							<section class="contact-infos">
@@ -206,8 +206,8 @@ if (typeof address_token !== 'undefined' && address_token !== null && address_to
 							 <% } %> 
 							</div></div>
 						<% } %>
-						<% if (typeof tokenContentStr['australia'] !== 'undefined' && tokenContentStr['australia'] !== null && tokenContentStr['australia']!="") {
-    						var addrDetails= tokenContentStr['australia']	%>
+						<% if (typeof tokenContentStr['Sydney'] !== 'undefined' && tokenContentStr['Sydney'] !== null && tokenContentStr['Sydney']!="") {
+    						var addrDetails= tokenContentStr['Sydney']	%>
 							<div id="tabs-4" class="tab-pane fade"><div CLASS="row">
 								<div class="col-lg-5 col-sm-5 address">
           							<section class="contact-infos">

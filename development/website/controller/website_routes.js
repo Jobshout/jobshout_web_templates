@@ -272,7 +272,7 @@ app.get('/search-results', function(req, res) {
 
 //contact page
 app.get('/contact', returnNavigation, function(req, res) {
-    	db.collection('tokens').findOne({"code" : "contact-page-address", uuid_system : init.system_id}, function(errdoc, addressContent) {
+		db.collection('tokens').findOne({"code" : "contact-page-address", uuid_system : init.system_id}, function(errdoc, addressContent) {
     		if(addressContent && addressContent!=""){
     			res.render('contact', {
       	 			navigation : req.navigation ,
@@ -281,7 +281,7 @@ app.get('/contact', returnNavigation, function(req, res) {
        			});
        		}else{
        			db.collection('tokens').findOne({"code" : "contact-page-address", shared_systems : { $in: [init.system_id] }}, function(errdoc, addressContent) {
-    				res.render('contact', {
+       				res.render('contact', {
       	 				navigation : req.navigation ,
       	 				address_token: addressContent,
       	 				queryStr : req.query
