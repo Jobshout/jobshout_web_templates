@@ -37,7 +37,7 @@ module.exports =
 	},
 	
 	returnNavigation : function (db, cb){
-		db.collection('bookmarks').find({"status": { $in: [ 1, "1" ] } , categories: { $in: [ 'footer-navigation', 'main-menu' ] }}).sort( { order_by_num: 1 } ).toArray(function(err, tokens_result) {
+		db.collection('bookmarks').find({"uuid_system" : init.system_id, "status": { $in: [ 1, "1" ] } , categories: { $in: [ 'footer-nav', 'top-navigation' ] }}).sort( { order_by_num: 1 } ).toArray(function(err, tokens_result) {
 			if(err) return cb(null)
 			cb(tokens_result);
 		});

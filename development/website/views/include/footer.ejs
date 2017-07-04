@@ -16,7 +16,7 @@
               	<ul class="page-footer-list">
               		<% if (typeof navigation !== 'undefined' && navigation !== null) {
 						for(var tnav=0; tnav<navigation.length; tnav++){
-							if(navigation[tnav].categories=='footer-navigation' && navigation[tnav].content!=''){	%>
+							if(navigation[tnav].categories=='footer-nav' && navigation[tnav].content!=''){	%>
 								<li><i class="fa fa-angle-right"></i><a HREF="<%= navigation[tnav].content %>" title="<%= navigation[tnav].label %>"><span><%= navigation[tnav].label %></span></a></li>
 							<%	} 
 						}	

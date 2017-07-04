@@ -13,7 +13,7 @@
               <ul class="nav navbar-nav">
 				<% if (typeof navigation !== 'undefined' && navigation !== null) {
 						for(var tnav=0; tnav<navigation.length; tnav++){
-							if(navigation[tnav].categories=='main-menu'){
+							if(navigation[tnav].categories=='top-navigation'){
 								if(navigation[tnav].type=="url"){		%>
 									 <li><a HREF="<%= navigation[tnav].content %>" title="<%= navigation[tnav].label %>"><span><%= navigation[tnav].label %></span></a></li>
 							<%	}else if(navigation[tnav].type=="items"){

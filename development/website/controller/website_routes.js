@@ -19,18 +19,32 @@ module.exports = function(init, app, db){
 	
 	//index page
 	app.get('/', returnNavigation, function(req, res) {
-		res.render('index', {
-      	 	navigation : req.navigation
+		db.collection('tokens').find({"code" :  { $in: ['home-page-mini-slider','in-case-you-need-any-help', 'home-page-branding-token', 'home-page-develeopment-token', 'home-page-marketing-token', 'home-page-about-us', 'home-page-slider'] } , $or: [ { 'uuid_system' : { $in: [init.system_id] } }, { 'shared_systems': { $in: [init.system_id] } } ]}).toArray(function(err, document) {
+			var resultdata;
+			if(document){
+				resultdata= document;
+			}
+			res.render('index', {
+				homePageTokenData : resultdata,
+      	 		navigation : req.navigation
+       		});
        	});
 	});
 	
 	app.get('/index', returnNavigation, function(req, res) {
-		res.render('index', {
-      	 	navigation : req.navigation
+		db.collection('tokens').find({"code" :  { $in: ['home-page-mini-slider','in-case-you-need-any-help', 'home-page-branding-token', 'home-page-develeopment-token', 'home-page-marketing-token', 'home-page-about-us', 'home-page-slider'] } , $or: [ { 'uuid_system' : { $in: [init.system_id] } }, { 'shared_systems': { $in: [init.system_id] } } ]}).toArray(function(err, document) {
+			var resultdata;
+			if(document){
+				resultdata= document;
+			}
+			res.render('index', {
+				homePageTokenData : resultdata,
+      	 		navigation : req.navigation
+       		});
        	});
 	});
 	
-	
+	/**
 	//case studies
 	app.get('/case-studies', returnNavigation, function(req, res) {
 		db.collection('documents').findOne({"Code" : "case-studies"}, function(err, document) {
@@ -44,6 +58,7 @@ module.exports = function(init, app, db){
        		});
 		});
 	});
+	**/
 	
 	//signup
 	app.get('/signup', returnNavigation, function(req, res) {
@@ -82,7 +97,7 @@ module.exports = function(init, app, db){
     });
 
 //unsubscribe
-app.get('/unsubscribe', function(req, res) {
+app.get('/unsubscribe', returnNavigation, function(req, res) {
 	var email_to='', contact_uuid= '', uuid='', unsubscribed=1, status="unsubscribe";
 	if(req.query.email_to){
 		email_to=req.query.email_to;
@@ -101,7 +116,7 @@ app.get('/unsubscribe', function(req, res) {
 	}
 	if(email_to!="" && uuid!=""){
 		var queryStr='email_to='+email_to+'&contact_uuid='+contact_uuid+'&uuid='+uuid+'&s=0';
-		db.collection('mailing_preferences').findOne({"email_address" : email_to, "uuid" : uuid}, function(err, foundRecord) {
+		db.collection('mailing_preferences').findOne({"email_address" : email_to, "uuid" : uuid, "uuid_system" : init.system_id}, function(err, foundRecord) {
 			if (typeof foundRecord !== 'undefined' && foundRecord !== null && foundRecord.uuid!="") {
     	  		var updateContent=new Object();
     	  		updateContent["modified"]=initFunctions.nowTimestamp();
@@ -110,20 +125,19 @@ app.get('/unsubscribe', function(req, res) {
     	  		updateContent["email_address"]=email_to;
     	  		updateContent["unsubscribed"]=unsubscribed;
     	  		updateContent["status"]=status;
-    	  		db.collection('mailing_preferences').update({"email_address" : email_to, "uuid" : uuid}, updateContent, (updateErr, result) => {
+    	  		updateContent["uuid_system"]=init.system_id;
+    	  		db.collection('mailing_preferences').update({"email_address" : email_to, "uuid" : uuid, "uuid_system" : init.system_id}, updateContent, (updateErr, result) => {
     	  			var tokenFlag=false;
     	  			if(result){
     	  				tokenFlag=true;
     	  			}
-    	  			initFunctions.returnNavigation(db, function(resultNav) {
-      					res.render('unsubscribe', {
-      	 					navigation : resultNav,
+    	  				res.render('unsubscribe', {
+      	 					navigation : req.navigation,
       	 					tokenBool : tokenFlag,
       	 					emailAddress : email_to,
       	 					queryString : queryStr,
       	 					unsubscribed : unsubscribed
        					});
-    				});
     	  		});
     	  	}else{
     	  		var addContent=new Object();
@@ -133,45 +147,44 @@ app.get('/unsubscribe', function(req, res) {
     	  		addContent["unsubscribed"]=unsubscribed;
     	  		addContent["email_address"]=email_to;
     	  		addContent["status"]=status;
+    	  		addContent["uuid_system"]=init.system_id;
+    	  		
     	  		db.collection("mailing_preferences").save(addContent, (insertErr, result) => {
     	  			var tokenFlag=false;
     	  			if(result){
     	  				tokenFlag=true;
     	  			}
-    	  			initFunctions.returnNavigation(db, function(resultNav) {
-      					res.render('unsubscribe', {
-      	 					navigation : resultNav,
+    	  				res.render('unsubscribe', {
+      	 					navigation : req.navigation,
       	 					tokenBool : tokenFlag,
       	 					emailAddress : email_to,
       	 					queryString : queryStr,
       	 					unsubscribed : unsubscribed
        					});
-    				});
     			});
     	  	}
     	});
     }else{
-    	initFunctions.returnNavigation(db, function(resultNav) {
-      		res.render('unsubscribe', {
-      	 		navigation : resultNav,
-      	 		tokenBool : false
-       		});
-    	});
+    	res.render('unsubscribe', {
+      		navigation : req.navigation,
+      		tokenBool : false
+       	});
     }
 })
 
 //search page
 	app.get('/sitemap', returnNavigation, function(req, res) {
-		db.collection('bookmarks').find({"categories" : "sitemap"}).toArray(function(err, document) {
+		db.collection('bookmarks').find({"categories" : "sitemap", "uuid_system" : init.system_id }).toArray(function(err, document) {
 			res.render('sitemap', {
       	 		resultData : document,
-      	 		navigation : req.navigation  
+      	 		navigation : req.navigation 
        		});
 		});
  	});
 
 //search results page
 app.get('/search-results', function(req, res) {
+	var myObj = new Object();
 	var itemsPerPage = 10, pageNum=1;
 	if(req.query.start){
 		pageNum=parseInt(req.query.start);
@@ -193,62 +206,34 @@ app.get('/search-results', function(req, res) {
 		}else{
 			query= '{ "Type" : "'+type+'", "status": { $in: [ 1, "1" ] },  ';
 		}
-		query+= '$or:[';
+		query+=" '$text': { '$search': '"+req.query.s+"' } ";
+		/**query+= '$or:[';
 		query+="{'Document' : "+regex+" }, {'Code' :  "+regex+"}, {'Body' :  "+regex+" }, {'MetaTagDescription' :  "+regex+" }";
-		query+=']';
+		query+=']';**/
+		query+=", $or: [ { 'uuid_system' : { $in: ['"+init.system_id+"'] } }, { 'shared_systems': { $in: ['"+init.system_id+"'] } } ] ";
 		query+='}';
 		fetchFieldsObj='{"Document" : 1, "Code" : 1, "Body" : 1}';
 	}	else	{
-		query= '{ "Type" : "'+type+'", "status": { $in: [ 1, "1" ] } }';
+		query= '{ "Type" : "'+type+'", "status": { $in: [ 1, "1" ] }';
+		query+=", $or: [ { 'uuid_system' : { $in: ['"+init.system_id+"'] } }, { 'shared_systems': { $in: ['"+init.system_id+"'] } } ] ";
+		query+='}';
 	}
+		
 		eval('var obj='+query);
 		eval('var fetchFieldsobj='+fetchFieldsObj);
-		
-		if(req.query.showResultsNum){
-			var definedLimitNum=parseInt(req.query.showResultsNum);
-			if(itemsPerPage>=definedLimitNum){
-				itemsPerPage=definedLimitNum;
-			}
-		}
-		//console.log(itemsPerPage * (pageNum-1));
-		db.collection('documents').find(obj, fetchFieldsobj).skip(pageNum-1).limit(itemsPerPage).sort( { Published_timestamp: 1 } ).toArray(function(err, document) {
-			
-			if (err) {
-				var myObj = new Object();
+		db.collection('documents').find(obj, fetchFieldsobj).skip(pageNum-1).limit(itemsPerPage).toArray(function(err, document) {
+			if (document) {
+      			db.collection('documents').find(obj).count(function (e, count) {
+      				myObj["total"]   = count;
+      				myObj["aaData"]   = document;
+					res.send(myObj);
+     			});
+			}else{
       			myObj["total"]   = 0;
       			myObj["error"]   = 'not found';
 				res.send(myObj);
-      		} else if (document) {
-      			if(document!=""){
-      				
-      				if(req.query.showResultsNum){
-      					db.collection('documents').find(obj).limit(parseInt(req.query.showResultsNum)).count(function (e, count) {
-      						var myObj = new Object();
-      						myObj["total"]   = count;
-      						myObj["aaData"]   = document;
-							res.send(myObj);
-     					});
-      				}else{
-      					db.collection('documents').find(obj).count(function (e, count) {
-      						var myObj = new Object();
-      						myObj["total"]   = count;
-      						myObj["aaData"]   = document;
-							res.send(myObj);
-     					});
-					}
-				}else{
-					var myObj = new Object();
-      				myObj["total"]   = 0;
-      				myObj["error"]   = 'not found';
-					res.send(myObj);
-				}
-      		}
+			}
       	});
-    /**}else{
-    	var errMsg= "{ 'error' : 'not found'} ";
-    	eval('var errMsg='+errMsg);
-        res.send(errMsg);
-    }**/
 });
 
 //404 page
@@ -285,22 +270,33 @@ app.get('/search-results', function(req, res) {
 	});
 
 
-	//contact page
-	app.get('/contact', returnNavigation, function(req, res) {
-    	db.collection('tokens').findOne({"code" : "contact-page-address"}, function(errdoc, addressContent) {
-    		res.render('contact', {
-      	 		navigation : req.navigation ,
-      	 		address_token: addressContent,
-      	 		queryStr : req.query
-       		});
+//contact page
+app.get('/contact', returnNavigation, function(req, res) {
+    	db.collection('tokens').findOne({"code" : "contact-page-address", uuid_system : init.system_id}, function(errdoc, addressContent) {
+    		if(addressContent && addressContent!=""){
+    			res.render('contact', {
+      	 			navigation : req.navigation ,
+      	 			address_token: addressContent,
+      	 			queryStr : req.query
+       			});
+       		}else{
+       			db.collection('tokens').findOne({"code" : "contact-page-address", shared_systems : { $in: [init.system_id] }}, function(errdoc, addressContent) {
+    				res.render('contact', {
+      	 				navigation : req.navigation ,
+      	 				address_token: addressContent,
+      	 				queryStr : req.query
+       				});
+    			});
+       		}
 		});
-	});
+});
 
 //save contact
 app.post('/contact/save', (req, res) => {
 	var link="/contact";
 	var postJson=req.body;
-	postJson.Created=init.currentTimestamp;
+	postJson.created=initFunctions.nowTimestamp();
+	postJson.uuid_system=init.system_id;
     db.collection("contacts").save(postJson, (err, result) => {
 		if (err){
     		link+="?error=Sorry, some problem occurred while submitting your request!";
@@ -309,12 +305,13 @@ app.post('/contact/save', (req, res) => {
     		link+="?success=Thanks, your request has been sent successfully!";
     		
     		var insertEmail=new Object();
+			insertEmail["uuid_system"]=init.system_id;
 			insertEmail["sender_name"]=req.body.name;
 			insertEmail["sender_email"]=req.body.email;
 			insertEmail["subject"]=req.body.subject;
 			insertEmail["body"]=req.body.message;
-			insertEmail["created"]=initFunctions.nowTimestamp();;
-			insertEmail["modified"]=initFunctions.nowTimestamp();;
+			insertEmail["created"]=initFunctions.nowTimestamp();
+			insertEmail["modified"]=initFunctions.nowTimestamp();
 			insertEmail["recipient"]='bwalia@tenthmatrix.co.uk';
 			insertEmail["status"]=0;
 			db.collection("email_queue").save(insertEmail, (err, e_result) => {
@@ -327,8 +324,8 @@ app.post('/contact/save', (req, res) => {
 //save blog comment
 app.post('/saveblogcomment', (req, res) => {
 	var postJson=req.body;
-	postJson.created=init.currentTimestamp;
-	postJson.modified=init.currentTimestamp;
+	postJson.created=init.nowTimestamp;
+	postJson.modified=init.nowTimestamp;
 	postJson.status=0;
 	postJson.uuid=initFunctions.guid();
 	var blogID= req.body.blog_uuid;
@@ -338,28 +335,44 @@ app.post('/saveblogcomment', (req, res) => {
 		initFunctions.returnFindOneByMongoID(db, table_nameStr, blogID, function(resultObject) {
 			var myObj = new Object();
 			if(resultObject.aaData){
-				db.collection(table_nameStr).update({_id:mongoIDField}, { $push: { "BlogComments": postJson } }, (err, result) => {
-    				if(result){
-    					var insertEmail=new Object();
-    					var nameStr=req.body.name;
-						insertEmail["sender_name"]=nameStr;
-						insertEmail["sender_email"]=req.body.email;
-						insertEmail["subject"]=nameStr+" has posted a comment";;
-						insertEmail["body"]=req.body.comment;
-						insertEmail["created"]=initFunctions.nowTimestamp();;
-						insertEmail["modified"]=initFunctions.nowTimestamp();;
-						insertEmail["recipient"]='bwalia@tenthmatrix.co.uk';
-						insertEmail["status"]=0;
-						db.collection("email_queue").save(insertEmail, (err, e_result) => {
-							myObj["success"]   = "Thanks your comment has been posted OK and will be visible soon!";
-							res.send(myObj);
-						})
-    				}else{
-    					myObj["error"]   = "Error posting comment. Please try again later!!!";
-						res.send(myObj);
-    				}
-    			});
-				
+				var documentData=resultObject.aaData;
+				var insertEmail=new Object();
+    			var nameStr=req.body.name;
+    			postJson.uuid_system=init.system_id;
+    			insertEmail["uuid_system"]=init.system_id;
+				insertEmail["sender_name"]=nameStr;
+				insertEmail["sender_email"]=req.body.email;
+				insertEmail["subject"]=nameStr+" has posted a comment";;
+				insertEmail["body"]=req.body.comment;
+				insertEmail["created"]=init.nowTimestamp;
+				insertEmail["modified"]=init.nowTimestamp;
+				insertEmail["recipient"]='bwalia@tenthmatrix.co.uk';
+				insertEmail["status"]=0;
+				if(typeof(documentData.BlogComments)=="string"){
+	            	db.collection(table_nameStr).update({_id:mongoIDField}, { $set: { "BlogComments": new Array(postJson) } }, (err, result) => {
+    	                if(result){
+                    	    db.collection("email_queue").save(insertEmail, (err, e_result) => {
+                        		myObj["success"]   = "Thanks your comment has been posted OK and will be visible soon!";
+                                res.send(myObj);
+                            });
+                        }else{
+                        	myObj["error"]   = "Error posting comment. Please try again later!!!";
+                            res.send(myObj);
+                        }
+                    });
+        		} else {
+					db.collection(table_nameStr).update({_id:mongoIDField}, { $push: { "BlogComments": postJson } }, (err, result) => {
+                    	if(result){
+                        	db.collection("email_queue").save(insertEmail, (err, e_result) => {
+                            	myObj["success"]   = "Thanks your comment has been posted OK and will be visible soon!";
+                                res.send(myObj);
+                            })
+                        }else{
+                            myObj["error"]   = "Error posting comment. Please try again later!!!";
+                            res.send(myObj);
+                        }
+                    });
+                }
 			}else{
 				myObj["error"]   = "Error posting comment. Please try again later!!!";
 				res.send(myObj);
@@ -390,12 +403,13 @@ app.post('/savewiusers', (req, res) => {
     				if(result){
     					var insertEmail=new Object();
     					var nameStr=req.body.name;
+    					insertEmail["uuid_system"]=init.system_id;
 						insertEmail["sender_name"]=nameStr;
 						insertEmail["sender_email"]=req.body.email;
 						insertEmail["subject"]=nameStr+" has registered to Jobshout";
 						insertEmail["body"]=req.body.comment;
-						insertEmail["created"]=initFunctions.nowTimestamp();;
-						insertEmail["modified"]=initFunctions.nowTimestamp();;
+						insertEmail["created"]=initFunctions.nowTimestamp();
+						insertEmail["modified"]=initFunctions.nowTimestamp();
 						insertEmail["recipient"]='bwalia@tenthmatrix.co.uk';
 						insertEmail["status"]=0;
 						db.collection("email_queue").save(insertEmail, (err, e_result) => {
@@ -456,16 +470,24 @@ app.get('/fetchTweets', function(req, res) {
 
 //content page
 app.get('/:id', returnNavigation, function(req, res) {
-	db.collection('documents').findOne({Code: req.params.id}, function(err, document) {
+      db.collection('documents').findOne({Code: req.params.id, uuid_system : init.system_id}, function(err, document) {
 		if (document) {
-      		res.render('content', {
-        		document_details: document,
-        		db_connection : db,
-        		navigation : req.navigation 
+			res.render('content', {
+       			document_details: document,
+       			navigation : req.navigation 
     		});
-      	} else {
-        		res.redirect('/not_found');
-      	}
+    	} else {
+    		db.collection('documents').findOne({Code: req.params.id, shared_systems : { $in: [init.system_id] }}, function(err, document) {
+				if (document) {
+					res.render('content', {
+       					document_details: document,
+       					navigation : req.navigation 
+    				});
+    			} else {
+       				res.redirect('/not_found');
+    			}
+    		});
+    	}
     });
 });
 

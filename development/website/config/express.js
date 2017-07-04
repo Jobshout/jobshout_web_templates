@@ -28,6 +28,9 @@ module.exports = function(init) {
 	// Set view engine
 	app.set('view engine', 'ejs')
 	
+	//we need this for pm2
+	app.set('views',__dirname + '/../views')
+	
 	// Request body parsing middleware should be above methodOverride
 	app.use(bodyParser.urlencoded({extended: true}))
 	

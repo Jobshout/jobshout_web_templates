@@ -150,7 +150,7 @@ function applyPagination(total_count,displayResultsNum){
 		
 		xhrStatus=$.getJSON(jsonRow,function(html){
 			if(html.error){
-				$("#newsData").before('<div class="alert alert-danger">No blogs found!</div>');
+				$("#newsData").before('<div class="alert alert-danger">Sorry, no posts found!</div>');
 			}else{
 				
 				if(html.total){
@@ -168,6 +168,7 @@ function applyPagination(total_count,displayResultsNum){
 					
 				}
 				var contentHtml="";
+				if(html.aaData && html.aaData.length>0) {
 				$.each(html.aaData, function(i,row){
 					if(row.Code!=""){
 						var bodyStr=row.Body;
@@ -209,6 +210,9 @@ function applyPagination(total_count,displayResultsNum){
                       	contentHtml+='</div></div>';
                     }
 				});
+				}else{
+					contentHtml+='<div class="alert alert-danger">Sorry, no posts found!</div>';
+				}
 				$("#newsData").html(contentHtml);
 			}
 			
@@ -226,7 +230,7 @@ function load_posts(){
 		}
 		xhrStatus=$.getJSON(jsonRow,function(html){
 			if(html.error){
-				$(".print_posts").html('No latest news available!');
+				$(".print_posts").html('<div class="alert alert-danger">No latest posts found!</div>');
 			}else{
 				
 				var contentHtml="";
@@ -235,6 +239,7 @@ function load_posts(){
 				}else{
 					contentHtml+="<h3>Latest Blog Post</h3>";
 				}
+				if(html.aaData && html.aaData.length>0) {
 				$.each(html.aaData, function(i,row){
 					if(row.Code!=""){
 						var defaultImg="images/no-image.png";
@@ -253,6 +258,9 @@ function load_posts(){
               			contentHtml+='</div>';
 					}
 				});
+				}else{
+					contentHtml+='<div class="alert alert-danger">No latest posts found!</div>';
+				}
 				$(".print_posts").html(contentHtml);
 			}
 		});
