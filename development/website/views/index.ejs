@@ -1,4 +1,4 @@
-<% var sliderContentStr='', homePageAboutUs='', homePageMarketingToken='', homePageDevToken='', homePageBrandingToken='', inCaseYouNeedHelp='', miniSliderStr='';
+<% var sliderContentStr='', homePageAboutUs='', homePageMarketingToken='', homePageDevToken='', homePageBrandingToken='', inCaseYouNeedHelp='', miniSliderStr='', finishedProductsStr='';
 if (homePageTokenData !== 'undefined' && homePageTokenData !== null && homePageTokenData.length>0) {
 	var objectArr=homePageTokenData;
 	for(var objCount=0; objCount<objectArr.length; objCount++){
@@ -18,7 +18,10 @@ if (homePageTokenData !== 'undefined' && homePageTokenData !== null && homePageT
             	inCaseYouNeedHelp= subObject.token_content;
             }else if(subObject.code=="home-page-mini-slider"){
             	miniSliderStr= subObject.token_content;
+            }else if(subObject.code=="home-page-finished-projects"){
+            	finishedProductsStr= subObject.token_content;
             }
+            
         }
     }   	
 } 
@@ -103,79 +106,8 @@ if (homePageTokenData !== 'undefined' && homePageTokenData !== null && homePageT
 	</div>
 
 
-      <!--recent work start-->
-    <div class="bg-lg">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 recent">
-            <h3 class="recent-work">
-          Some of our Finished job boards
-            </h3>
-          
-            <div id="owl-demo" class="owl-carousel owl-theme wow fadeIn">
-
-              <div class="item view view-tenth">
-                <img src="img/cv-screen.jpg" alt="work Image">
-                <div class="mask">
-                  <a href="#" class="info" data-toggle="tooltip" data-placement="top" title="Details">
-                    <i class="fa fa-link">
-                    </i>
-                  </a>
-                </div>
-              </div>
-              <div class="item view view-tenth">
-                <img src="img/propel.jpg" alt="work Image">
-                <div class="mask">
-                  <a href="#" class="info" data-toggle="tooltip" data-placement="top" title="Details">
-                    <i class="fa fa-link">
-                    </i>
-                  </a>
-                </div>
-              </div>
-              <div class="item view view-tenth">
-                <img src="img/cv-screen.jpg" alt="work Image">
-                <div class="mask">
-                  <a href="#" class="info" data-toggle="tooltip" data-placement="top" title="Details">
-                    <i class="fa fa-link">
-                    </i>
-                  </a>
-                </div>
-              </div>
-             <div class="item view view-tenth">
-                <img src="img/cv-screen.jpg" alt="work Image">
-                <div class="mask">
-                  <a href="#" class="info" data-toggle="tooltip" data-placement="top" title="Details">
-                    <i class="fa fa-link">
-                    </i>
-                  </a>
-                </div>
-              </div>
-              <div class="item view view-tenth">
-                <img src="img/propel.jpg" alt="work Image">
-                <div class="mask">
-                  <a href="#" class="info" data-toggle="tooltip" data-placement="top" title="Details">
-                    <i class="fa fa-link">
-                    </i>
-                  </a>
-                </div>
-              </div>
-              <div class="item view view-tenth">
-                <img src="img/cv-screen.jpg" alt="work Image">
-                <div class="mask">
-                  <a href="#" class="info" data-toggle="tooltip" data-placement="top" title="Details">
-                    <i class="fa fa-link">
-                    </i>
-                  </a>
-                </div>
-              </div>
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--recent work end-->
-    </div>
+    <!--finished projects-->
+    <%- finishedProductsStr %>
 
 	<%- inCaseYouNeedHelp %>
     <!-- service end -->

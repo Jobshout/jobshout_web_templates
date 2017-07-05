@@ -19,7 +19,7 @@ module.exports = function(init, app, db){
 	
 	//index page
 	app.get('/', returnNavigation, function(req, res) {
-		db.collection('tokens').find({"code" :  { $in: ['home-page-mini-slider','in-case-you-need-any-help', 'home-page-branding-token', 'home-page-develeopment-token', 'home-page-marketing-token', 'home-page-about-us', 'home-page-slider'] } , $or: [ { 'uuid_system' : { $in: [init.system_id] } }, { 'shared_systems': { $in: [init.system_id] } } ]}).toArray(function(err, document) {
+		db.collection('tokens').find({"code" :  { $in: ['home-page-finished-projects','home-page-mini-slider','in-case-you-need-any-help', 'home-page-branding-token', 'home-page-develeopment-token', 'home-page-marketing-token', 'home-page-about-us', 'home-page-slider'] } , $or: [ { 'uuid_system' : { $in: [init.system_id] } }, { 'shared_systems': { $in: [init.system_id] } } ]}).toArray(function(err, document) {
 			var resultdata;
 			if(document){
 				resultdata= document;
@@ -32,7 +32,7 @@ module.exports = function(init, app, db){
 	});
 	
 	app.get('/index', returnNavigation, function(req, res) {
-		db.collection('tokens').find({"code" :  { $in: ['home-page-mini-slider','in-case-you-need-any-help', 'home-page-branding-token', 'home-page-develeopment-token', 'home-page-marketing-token', 'home-page-about-us', 'home-page-slider'] } , $or: [ { 'uuid_system' : { $in: [init.system_id] } }, { 'shared_systems': { $in: [init.system_id] } } ]}).toArray(function(err, document) {
+		db.collection('tokens').find({"code" :  { $in: ['home-page-finished-projects','home-page-mini-slider','in-case-you-need-any-help', 'home-page-branding-token', 'home-page-develeopment-token', 'home-page-marketing-token', 'home-page-about-us', 'home-page-slider'] } , $or: [ { 'uuid_system' : { $in: [init.system_id] } }, { 'shared_systems': { $in: [init.system_id] } } ]}).toArray(function(err, document) {
 			var resultdata;
 			if(document){
 				resultdata= document;
@@ -456,7 +456,6 @@ app.get('/fetchTweets', function(req, res) {
   		access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
   		access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 	});
- 
 	var params = {screen_name : "jobshoutnews", count: '3', trim_user : "true", "exclude_replies" : "true"};
 	client.get('statuses/user_timeline', params, function(error, tweets, response) {
   		if (!error) {
