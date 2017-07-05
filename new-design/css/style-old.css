@@ -2620,53 +2620,26 @@ p { text-align: left }
     -o-transition: all .3s ease;
     transition: all .3s ease;
 }
-
-
-
-
-.btn-danger {
-
-	background-color: #bb0040;
-
-	border-bottom: 3px solid #880021;
-
-border-right: 3px solid #880021;
-
-border-left:none;
-
-border-top:none;
-
-	
-
+.btn.btn-danger {
+    background-color: #E74c3c;
+    border: none;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
 }
-
-.btn-danger:hover, .btn-danger:active, .btn-danger.hover {
-
-	background-color: #880021;border-bottom: 3px solid #bb0040;
-
-border-right: 3px solid #bb0040;
-
-border-left:none;
-
-border-top:none;
-
-
+.btn.btn-danger:hover,
+.btn.btn-danger:active,
+.btn.btn-danger.hover {
+    background-color: #f4543c;
+    border: none;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
 }
-
-
-
-.btn-danger.focus, .btn-danger:focus{
-	background-color: #bb0040!important;
-}
-
-
-
-
-
-
-
-
-
 .btn.btn-warning {
     background-color: #f6bb42;
     border: none;
@@ -3043,48 +3016,6 @@ div.header h3{
 }
 
 
-
-
-.content h1 span {
-    padding-bottom: 8px;
-    border-bottom: 1px solid #b90140;
-    font-weight: 400;
-}
-
-
-
-.content h1 {
-    color: #444444;
-    padding: 10px 0px;
-    font-size: 22px;
-    border-bottom: 1px solid #ddd;
-    margin-left: 0px;
-
-}
-
-
-
-
-@media (max-width: 768px) {
-	
-	.content h1{
-		border:none;
-	}
-	
-	.content h1 span {
-    padding-bottom: 8px;
-    border:none;
-    font-weight: 400;
-}
-
-
-}
-
-
-
-
-
-
 .content h4{
 	background-color: #2E2E2E;
 padding: 10px;
@@ -3099,28 +3030,6 @@ padding-left: 14px;
 .content ul li{
 line-height: 28px;
 }
-
-
-.heading-title {
-    font-size: 20px;
-    color: #444444;
-    margin-bottom: 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #eee;
-    font-weight: 300;
-}
-
-
-
-.heading-title span {
-	padding-bottom: 7px;
-border-bottom: 1px solid #b90140;
-
-	font-weight: 400;
-}
-
-
-
 
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
 	background-color:#373737;
