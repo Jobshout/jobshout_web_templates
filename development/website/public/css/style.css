@@ -807,10 +807,12 @@ ul.about-flex-slides { margin-left: 0 }
 .breadcrumb li a { color: #fff }
 .breadcrumb li.active { color: #fff }
 .breadcrumbs h1 {
-    font-size: 24px;
-    font-weight: 600;
-    margin: 3px 0 0;
-    text-transform: uppercase;
+    font-size: 22px;
+font-weight: 600;
+margin: 3px 0 0;
+text-transform: uppercase;
+line-height: 31px;
+
 }
 /*contact*/
 .contact-map {
@@ -2620,26 +2622,30 @@ p { text-align: left }
     -o-transition: all .3s ease;
     transition: all .3s ease;
 }
-.btn.btn-danger {
-    background-color: #E74c3c;
-    border: none;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
+.btn-danger {
+	background-color: #bb0040;
+	border-bottom: 3px solid #880021;
+	border-right: 3px solid #880021;
+	border-left:none;
+	border-top:none;
 }
-.btn.btn-danger:hover,
-.btn.btn-danger:active,
-.btn.btn-danger.hover {
-    background-color: #f4543c;
-    border: none;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
+
+.btn-danger:hover, .btn-danger:active, .btn-danger.hover {
+
+	background-color: #880021;border-bottom: 3px solid #bb0040;
+	border-right: 3px solid #bb0040;
+	border-left:none;
+	border-top:none;
+
+
 }
+
+
+.btn-danger.focus, .btn-danger:focus{
+	background-color: #bb0040!important;
+}
+
+
 .btn.btn-warning {
     background-color: #f6bb42;
     border: none;
@@ -3012,7 +3018,48 @@ div.header h3{
 }
 
 
-.content{
+.content h1 span {
+    padding-bottom: 8px;
+    border-bottom: 1px solid #b90140;
+    font-weight: 400;
+}
+
+
+
+.content h1 {
+    color: #444444;
+    padding: 10px 0px;
+    font-size: 22px;
+    border-bottom: 1px solid #ddd;
+    margin-left: 0px;
+
+}
+
+
+
+
+@media (max-width: 768px) {
+	
+	.content h1{
+		border:none;
+	}
+	
+	.content h1 span {
+    padding-bottom: 8px;
+    border:none;
+    font-weight: 400;
+}
+
+
+}
+
+
+
+.content h2{
+	color: #b90140;
+    padding: 10px 0px;
+    font-size: 22px;
+	
 }
 
 
