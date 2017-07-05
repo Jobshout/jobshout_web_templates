@@ -7,6 +7,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
+               <div class="visible-xs" style="float:right; position:relative; top: 9px; left: -6px;">
+              <form id="searchForm" method="get" action="search" onsubmit="return $.checkSearchBox();">
+                  		<input class="form-control search" placeholder=" Search" type="text" name="s" value="" id="csearch">
+                  	</form>
+              </div>
               <a class="navbar-brand" href="/index"><img src="img/logo.gif"></a>
           </div>
           <div class="navbar-collapse collapse">
@@ -41,12 +46,13 @@
 							} 
 						}	
 				} %>
-                  <li>
+                  <li class="hidden-xs">
                   	<form id="searchForm" method="get" action="search" onsubmit="return $.checkSearchBox();">
                   		<input class="form-control search" placeholder=" Search" type="text" name="s" value="" id="csearch">
                   	</form>
                   </li>
               </ul>
+             
           </div>
       </div>
     </header>
