@@ -211,8 +211,10 @@ $(document).ready(function() {
 		new WOW().init();
 	
 	$.checkSearchBox = function checkSearchBox(){
+
 		var csearch = $('#csearch').val();	
-		if(csearch==""){
+		var csearch1 = $('#csearch1').val();	
+		if(csearch=="" || csearch1=""){
 			alert('Please enter job search keyword(s)');return false;
 		}
 		else return true;
