@@ -1,0 +1,159 @@
+<% var sliderContentStr='', homePageAboutUs='', homePageMarketingToken='', homePageDevToken='', homePageBrandingToken='', inCaseYouNeedHelp='', miniSliderStr='', finishedProductsStr='';
+if (homePageTokenData !== 'undefined' && homePageTokenData !== null && homePageTokenData.length>0) {
+	var objectArr=homePageTokenData;
+	for(var objCount=0; objCount<objectArr.length; objCount++){
+        var subObject=objectArr[objCount];
+        if(subObject.status==1 || subObject.status=="1"){
+            if(subObject.code=="home-page-slider"){
+            	sliderContentStr= subObject.token_content;
+            }else if(subObject.code=="home-page-about-us"){
+            	homePageAboutUs= subObject.token_content;
+            }else if(subObject.code=="home-page-marketing-token"){
+            	homePageMarketingToken= subObject.token_content;
+            }else if(subObject.code=="home-page-develeopment-token"){
+            	homePageDevToken= subObject.token_content;
+            }else if(subObject.code=="home-page-branding-token"){
+            	homePageBrandingToken= subObject.token_content;
+            }else if(subObject.code=="in-case-you-need-any-help"){
+            	inCaseYouNeedHelp= subObject.token_content;
+            }else if(subObject.code=="home-page-mini-slider"){
+            	miniSliderStr= subObject.token_content;
+            }else if(subObject.code=="home-page-finished-projects"){
+            	finishedProductsStr= subObject.token_content;
+            }
+            
+        }
+    }   	
+} 
+%>
+<% include include/main-header %>
+	<link rel="stylesheet" href="assets/owlcarousel/owl.carousel.css">
+    <link rel="stylesheet" href="assets/owlcarousel/owl.theme.css">
+    <link href="css/superfish.css" rel="stylesheet" media="screen">
+</head>
+<body>
+	<% include include/header %>
+	<!-- end topWrap -->
+	
+	<!-- Sequence Modern Slider -->
+    <%- sliderContentStr %>
+
+    <!--property start-->
+    <%- homePageAboutUs %>
+    <!--property end-->
+
+	<div class="container">
+		<div class="row mar-b-60">
+        <% if(homePageMarketingToken!="" || homePageDevToken!="" || homePageBrandingToken!=""){ %>
+        <div class="col-lg-6">
+          <!--tab start-->
+          <section class="tab wow fadeInLeft">
+            <header class="panel-heading tab-bg-dark-navy-blue">
+              <ul class="nav nav-tabs nav-justified ">
+              	<% if(homePageMarketingToken!=""){ %>
+                <li class="active">
+                  <a data-toggle="tab" href="#news">
+                    Marketing
+                  </a>
+                </li>
+                <% } %>
+                <% if(homePageDevToken!=""){ %>
+                <li>
+                  <a data-toggle="tab" href="#events">
+                    Development
+                  </a>
+                </li>
+                <% } %>
+                <% if(homePageBrandingToken!=""){ %>
+                <li class="">
+                  <a data-toggle="tab" href="#notice-board">
+                    Branding
+                  </a>
+                </li>
+                <% } %>
+              </ul>
+            </header>
+            <div class="panel-body">
+              <div class="tab-content tasi-tab">
+                <% if(homePageMarketingToken!=""){ %>
+                	<div id="news" class="tab-pane fade in active">
+						<p><%- homePageMarketingToken %></p>
+                 	</div>
+                <% } %>
+                <% if(homePageDevToken!=""){ %>
+                <div id="events" class="tab-pane fade">
+                    <p><%- homePageDevToken %></p>
+                </div>
+                 <% } %>
+                <% if(homePageBrandingToken!=""){ %>
+                <div id="notice-board" class="tab-pane fade">
+                   <p><%- homePageBrandingToken %></p>
+                </div>
+                 <% } %>
+              </div>
+            </div>
+          </section>
+          <!--tab end-->
+        
+        </div>
+        <% } %>
+        <div class="col-lg-6">
+          <!--testimonial start-->
+          <%- miniSliderStr %>
+          <!--testimonial end-->
+        </div>
+        </div>
+	</div>
+
+
+    <!--finished projects-->
+    <%- finishedProductsStr %>
+
+	<%- inCaseYouNeedHelp %>
+    <!-- service end -->
+    <!--footer start-->
+    <% include include/footer %>
+    <!--footer end-->
+	<script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
+    <script src="assets/owlcarousel/owl.carousel.js"></script> 
+    <script src="js/superfish.js"></script>
+    <script type="text/javascript" src="js/parallax-slider/jquery.cslider.js"></script>
+    <script type="text/javascript">
+		$(function() {
+			$('#da-slider').cslider({
+         	 	autoplay    : true,
+          		bgincrement : 100
+       		});
+		
+			$('.bxslider1').bxSlider({
+          		minSlides: 5,
+          		maxSlides: 6,
+          		slideWidth: 360,
+          		slideMargin: 2,
+          		moveSlides: 1,
+          		responsive: true,
+         		nextSelector: '#slider-next',
+          		prevSelector: '#slider-prev',
+          		nextText: 'Onward →',
+          		prevText: '← Go back'
+       		});
+       		$("#owl-demo").owlCarousel({
+				items : 4
+			});
+			$('ul.superfish').superfish();
+		});
+
+      	$('a.info').tooltip();
+
+      	$(window).load(function() {
+       		$('.flexslider').flexslider({
+          		animation: "slide",
+          		start: function(slider) {
+            		$('body').removeClass('loading');
+          		}
+        	});
+      	});
+		new WOW().init();
+		</script>
+  </body>
+</html>

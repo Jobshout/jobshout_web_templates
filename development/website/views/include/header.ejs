@@ -1,0 +1,59 @@
+<!--header start-->
+    <header class="head-section">
+      <div class="navbar navbar-default navbar-static-top container">
+          <div class="navbar-header">
+              <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+               <div class="visible-xs" style="float:right; position:relative; top: 9px; left: -6px;">
+              <form id="searchForm" method="get" action="search" onsubmit="return $.checkSearchBox();">
+                  		<input class="form-control search" placeholder=" Search" type="text" name="s" value="" id="csearch">
+                  	</form>
+              </div>
+              <a class="navbar-brand" href="/index"><img src="img/logo.gif"></a>
+          </div>
+          <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+				<% if (typeof navigation !== 'undefined' && navigation !== null) {
+						for(var tnav=0; tnav<navigation.length; tnav++){
+							if(navigation[tnav].categories=='top-navigation'){
+								if(navigation[tnav].type=="url"){		%>
+									 <li><a HREF="<%= navigation[tnav].content %>" title="<%= navigation[tnav].label %>"><span><%= navigation[tnav].label %></span></a></li>
+							<%	}else if(navigation[tnav].type=="items"){
+									try{
+										var bookmarkItems = JSON.parse(navigation[tnav].bookmark_items); 
+        							}	catch (error){
+       									var bookmarkItems = navigation[tnav].bookmark_items; 
+    								} 
+									if(bookmarkItems.length>0){	%>
+										<li class="dropdown">
+											<a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" data-toggle="dropdown" href="#"><%= navigation[tnav].label %> <i class="fa fa-angle-down"></i></a>
+											 <ul class="dropdown-menu">
+								 			<% bookmarkItems.sort(dynamicSort("item_sort_order"));
+								 				for(var count=0; count< bookmarkItems.length; count++){
+								 					if(bookmarkItems[count].type=="url"){  %>
+								 						<li><a href="<%= bookmarkItems[count].content %>" title="<%= bookmarkItems[count].label %>"><%= bookmarkItems[count].label %></a></li>
+								 				<% 	}else if(bookmarkItems[count].type=="html"){  %>
+								 						<li><%- bookmarkItems[count].content %></li>
+								 				<%	}
+								 				}	 %>
+								 			</ul>
+										</li>
+									<%	}
+								}
+							} 
+						}	
+				} %>
+                  <li class="hidden-xs">
+                  	<form id="searchForm" method="get" action="search" onsubmit="return $.checkSearchBox();">
+                  		<input class="form-control search" placeholder=" Search" type="text" name="s" value="" id="csearch1">
+                  	</form>
+                  </li>
+              </ul>
+             
+          </div>
+      </div>
+    </header>
+    <!--header end-->

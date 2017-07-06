@@ -1,0 +1,222 @@
+	<!--footer start-->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-sm-3 address wow fadeInUp" data-wow-duration="2s" data-wow-delay=".1s">
+            <h1>Blog</h1>
+            <ul class="page-footer-list" id="latestfooterblogs"></ul>
+          </div>
+          <div class="col-lg-3 col-sm-3 wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s" id="load_tweets">
+            	<h1>latest tweet</h1>
+             	
+          </div>
+          <div class="col-lg-3 col-sm-3">
+			<div class="page-footer wow fadeInUp" data-wow-duration="2s" data-wow-delay=".5s">
+              	<h1>Quick Link</h1>
+              	<ul class="page-footer-list">
+              		<% if (typeof navigation !== 'undefined' && navigation !== null) {
+						for(var tnav=0; tnav<navigation.length; tnav++){
+							if(navigation[tnav].categories=='footer-nav' && navigation[tnav].content!=''){	%>
+								<li><i class="fa fa-angle-right"></i><a HREF="<%= navigation[tnav].content %>" title="<%= navigation[tnav].label %>"><span><%= navigation[tnav].label %></span></a></li>
+							<%	} 
+						}	
+					} %>
+              </ul>
+            </div>
+          </div>
+			<div class="col-lg-3 col-sm-3">
+            	<div class="text-footer text-left wow fadeInUp" data-wow-duration="2s" data-wow-delay=".7s">
+              		<h1>Contact Us</h1>
+					<form CLASS="form-horizontal" id="contactForm" method="post" action="/contact/save">
+		  				<div CLASS="form-group">
+		 					<input TYPE="text" CLASS="form-control" value="" name="name" id="name" placeholder="Name">
+		  				</div>
+		  				<div CLASS="form-group">
+		 					<input TYPE="text" CLASS="form-control" value="" id="email" name="email" placeholder="Email">
+		 				</div>
+		  				<div CLASS="form-group">
+		 					<input TYPE="text" CLASS="form-control" name="phone" value="" id="phone" placeholder="Telephone">
+		  				</div>
+		  				<div CLASS="form-group">
+		  					<TEXTAREA CLASS="form-control" name="message" id="message" placeholder="Write message here..."></TEXTAREA>
+						</div>
+		   				<div CLASS="form-group">
+		 					<button CLASS="btn btn-danger" type="submit" class="contactFooterBtn" name="sendmail">Submit</button>
+		  				</div>
+		   			</form>
+            	</div>
+          	</div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer end -->
+    <!--small footer start -->
+    <footer class="footer-small">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6 pull-right" id="follow_us_tokens">
+                    <ul class="social-link-footer list-unstyled" id="follow_us_data">
+                                             
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                  <div class="copyright">
+                    <p>&copy; Copyright - Jobshout 2016-2017</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--small footer end-->
+
+    <!-- js placed at the end of the document so the pages load faster
+<script src="js/jquery.js">
+</script>
+-->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/hover-dropdown.js"></script>
+    <script defer src="js/jquery.flexslider.js"></script>
+    <script type="text/javascript" src="assets/bxslider/jquery.bxslider.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/link-hover.js"></script>
+	<script src="js/jquery.easing.min.js"></script>
+    <!--common script for all pages-->
+    <script src="js/common-scripts.js"></script>
+    <script src="js/jquery.validate.js"></script>
+<script>
+function timeConverter(UNIX_timestamp, dateformat){
+	var a = new Date(UNIX_timestamp * 1000);
+	var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+	var year = a.getFullYear();
+	var month = months[a.getMonth()];
+	var date = a.getDate();
+	if(dateformat=="date"){
+  		return  date;
+  	} else if(dateformat=="month"){
+  		return  month;
+  	} else {
+  		return  date+' '+month+' '+year;
+  	}
+}
+
+$("#contactForm").validate({
+	rules: {
+		name: "required",
+		email: {
+			required: true, email: true
+		},
+		comment: "required",
+		blog_uuid : "required"
+	},
+	messages: {
+		name: "Please enter your name",
+		email: {
+			required: "Please enter your E-mail",
+			email: "Please enter valid E-mail"
+		},
+		comment: "Please leave your message!",
+		blog_uuid: "Required Field!"
+	}
+});
+	
+function fetch_follow_us()	{
+	$('#follow_us_tokens').hide();
+	var val= "['jobshout-facebook', 'jobshout-linkedin', 'jobshout-google-plus']";
+	var jsonRow="/fetch_tokens_content?code="+val;
+	$.getJSON(jsonRow,function(html){
+		if(html.aaData){
+			var contentHtml="";
+			$.each(html.aaData, function(i,row){
+				var iconUi='';
+				switch (row.code) {
+    				case 'jobshout-linkedin':
+       				iconUi = '<i class="fa fa-linkedin"></i>';
+        			break;
+        			case 'jobshout-facebook':
+       				iconUi = '<i class="fa fa-facebook"></i>';
+        			break;
+        			case 'jobshout-twitter':
+       				iconUi = '<i class="fa fa-twitter"></i>';
+        			break;
+        			case 'jobshout-youtube':
+       				iconUi = '<i class="fa fa-youtube"></i>';
+        			break;    
+        			case 'jobshout-google-plus':
+       				iconUi = '<i class="fa fa-google-plus"></i>';
+        			break;    	
+				}
+				contentHtml+='<li><a href="'+row.token_content+'" target="_blank">'+iconUi+'</i></a></li>';
+			});
+			if(contentHtml!=""){
+				$('#follow_us_tokens').show();
+				$("#follow_us_data").html(contentHtml);
+			}
+		}
+	});
+}
+$(document).ready(function() {
+	//fetch follow us content
+	fetch_follow_us();
+	
+	$.getJSON("/fetchTweets",function(html){
+		var contentHtml="";
+		if(html.error){
+			$("#load_tweets").append('<div class="tweet-box">Sorry, no latest tweets found!</div>');
+		}else{
+			$.each(html.aaData, function(i,row){
+				contentHtml+='<div class="tweet-box">';
+        		contentHtml+='<i class="fa fa-twitter"></i>';
+         		var textStr=row.text;
+        		if(textStr.length>50){
+        			textStr=textStr.substr(0,50)+"...";
+                }
+                contentHtml+='<em>'+textStr+'<br><a target="_blank" href="https://twitter.com/jobshoutnews?ref_src=twsrc%5Etfw">twitter.com/jobshoutnews</a></em>';
+              	contentHtml+='</div>';
+			});	
+		}
+		$("#load_tweets").append(contentHtml);
+	});
+	
+	$.getJSON("/search-results?start=0&s=&type=blog&limit=3",function(html){
+			if(html.error){
+				$("#latestfooterblogs").before('<div class="alert">No blogs found!</div>');
+			}else{
+				
+				var contentHtml="";
+				$.each(html.aaData, function(i,row){
+					if(row.Code!=""){
+						contentHtml+='<li><i class="fa fa-angle-right"></i>';
+						if(row.Published_timestamp){
+							contentHtml+='<strong>'+timeConverter(row.Published_timestamp)+'</strong>:&nbsp;';
+						}
+						contentHtml+='<a href="/'+row.Code+'" title="'+row.Document+'">'+row.Document+'</a>';
+						contentHtml+='</li>';
+                    }
+				});
+				$("#latestfooterblogs").html(contentHtml);
+			}
+	});
+});
+</script>
+    <script type="text/javascript">
+     	$(window).load(function() {
+       		$('.flexslider').flexslider({
+          		animation: "slide",
+          		start: function(slider) {
+            		$('body').removeClass('loading');
+          		}
+        	});
+      	});
+		new WOW().init();
+	
+	$.checkSearchBox = function checkSearchBox(){
+
+		var csearch = $('#csearch').val();	
+		var csearch1 = $('#csearch1').val();	
+		if(csearch=="" || csearch1=""){
+			alert('Please enter job search keyword(s)');return false;
+		}
+		else return true;
+	}
+</script>
