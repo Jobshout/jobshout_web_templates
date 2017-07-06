@@ -43,23 +43,7 @@ module.exports = function(init, app, db){
        		});
        	});
 	});
-	
-	/**
-	//case studies
-	app.get('/case-studies', returnNavigation, function(req, res) {
-		db.collection('documents').findOne({"Code" : "case-studies"}, function(err, document) {
-      		var aaData=new Object();
-      		if(document){
-      			aaData = document;
-       		}
-       		res.render('case-studies', {
-      			resultData : document,
-      	 		navigation :  req.navigation  
-       		});
-		});
-	});
-	**/
-	
+		
 	//signup
 	app.get('/signup', returnNavigation, function(req, res) {
 		res.render('signup', {
@@ -303,16 +287,19 @@ app.post('/contact/save', (req, res) => {
     		res.redirect(link)
     	}else{ 
     		link+="?success=Thanks, your request has been sent successfully!";
-    		
+    		var	subjectStr = init.system_name+" has new enquiry";
+    		if(req.body.subject){
+    			var subjectStr=req.body.subject
+    		}
     		var insertEmail=new Object();
 			insertEmail["uuid_system"]=init.system_id;
 			insertEmail["sender_name"]=req.body.name;
 			insertEmail["sender_email"]=req.body.email;
-			insertEmail["subject"]=req.body.subject;
+			insertEmail["subject"]=subjectStr;
 			insertEmail["body"]=req.body.message;
 			insertEmail["created"]=initFunctions.nowTimestamp();
 			insertEmail["modified"]=initFunctions.nowTimestamp();
-			insertEmail["recipient"]='bwalia@tenthmatrix.co.uk';
+			insertEmail["recipient"]=init.recipientStr;
 			insertEmail["status"]=0;
 			db.collection("email_queue").save(insertEmail, (err, e_result) => {
 				res.redirect(link);
@@ -344,9 +331,9 @@ app.post('/saveblogcomment', (req, res) => {
 				insertEmail["sender_email"]=req.body.email;
 				insertEmail["subject"]=nameStr+" has posted a comment";;
 				insertEmail["body"]=req.body.comment;
-				insertEmail["created"]=init.nowTimestamp;
-				insertEmail["modified"]=init.nowTimestamp;
-				insertEmail["recipient"]='bwalia@tenthmatrix.co.uk';
+				insertEmail["created"]=initFunctions.nowTimestamp();
+				insertEmail["modified"]=initFunctions.nowTimestamp();
+				insertEmail["recipient"]=init.recipientStr;
 				insertEmail["status"]=0;
 				if(typeof(documentData.BlogComments)=="string"){
 	            	db.collection(table_nameStr).update({_id:mongoIDField}, { $set: { "BlogComments": new Array(postJson) } }, (err, result) => {
@@ -406,11 +393,11 @@ app.post('/savewiusers', (req, res) => {
     					insertEmail["uuid_system"]=init.system_id;
 						insertEmail["sender_name"]=nameStr;
 						insertEmail["sender_email"]=req.body.email;
-						insertEmail["subject"]=nameStr+" has registered to Jobshout";
+						insertEmail["subject"]=nameStr+" has registered to "+init.system_name;
 						insertEmail["body"]=req.body.comment;
 						insertEmail["created"]=initFunctions.nowTimestamp();
 						insertEmail["modified"]=initFunctions.nowTimestamp();
-						insertEmail["recipient"]='bwalia@tenthmatrix.co.uk';
+						insertEmail["recipient"]=init.recipientStr;
 						insertEmail["status"]=0;
 						db.collection("email_queue").save(insertEmail, (err, e_result) => {
 							myObj["success"]   = "Thank you for registering with us, we will contact you soon!";
@@ -448,22 +435,40 @@ app.get('/fetch_tokens_content', function(req, res) {
 
 //content page
 app.get('/fetchTweets', function(req, res) {
-	var tweetsObj = new Object();
-	var Twitter = require('twitter');
-	var client = new Twitter({
-  		consumer_key: process.env.TWITTER_CONSUMER_KEY,
-  		consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-  		access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-  		access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
-	});
-	var params = {screen_name : "jobshoutnews", count: '3', trim_user : "true", "exclude_replies" : "true"};
-	client.get('statuses/user_timeline', params, function(error, tweets, response) {
-  		if (!error) {
-    		tweetsObj["aaData"]   = tweets;
-		} else	{
-  			tweetsObj["error"]   = "Please specify your email address!";
+	db.collection('system_lists').findOne({code: "twitter-details"}, function(err, listDetails) {
+		var consumer_key_str = process.env.TWITTER_CONSUMER_KEY;
+  		var consumer_secret_str = process.env.TWITTER_CONSUMER_SECRET;
+  		var access_token_key_str = process.env.TWITTER_ACCESS_TOKEN_KEY;
+  		var access_token_secret_str = process.env.TWITTER_ACCESS_TOKEN_SECRET;
+  		
+		if(listDetails && listDetails.list && listDetails.list.length>0){
+			var listArr = listDetails.list;
+			for(var i=0; i<listArr.length; i++){
+				if(listArr[i].label=="CONSUMER_SECRET")	{
+					consumer_secret_str = listArr[i].value;
+				} else if(listArr[i].label=="CONSUMER_KEY"){
+					consumer_key_str = listArr[i].value;
+				}	else if(listArr[i].label=="ACCESS_TOKEN_KEY"){
+					access_token_key_str = listArr[i].value;
+				}	else if(listArr[i].label=="ACCESS_TOKEN_SECRET"){
+					access_token_secret_str = listArr[i].value;
+				}
+			}
 		}
-  		res.send(tweetsObj);
+		var tweetsObj = new Object();
+		var Twitter = require('twitter');
+		var client = new Twitter({
+  			consumer_key: consumer_key_str, consumer_secret: consumer_secret_str,	access_token_key: access_token_key_str,	access_token_secret: access_token_secret_str
+		});
+		var params = {screen_name : "jobshoutnews", count: '3', trim_user : "true", "exclude_replies" : "true"};
+		client.get('statuses/user_timeline', params, function(error, tweets, response) {
+  			if (!error) {
+    			tweetsObj["aaData"]   = tweets;
+			} else	{
+  				tweetsObj["error"]   = "Please specify your email address!";
+			}
+  			res.send(tweetsObj);
+		});
 	});
 });
 

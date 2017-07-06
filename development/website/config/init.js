@@ -23,5 +23,8 @@
     	MongoClient : MongoClient,
     	mongoConnUrl : url,
     	port : 3004,
+    	recipientStr : 'bwalia@tenthmatrix.co.uk',
+    	system_name : "Jobshout Website",
+    	websiteUrl : 'http://www.jobshout.com',
         system_id : "5947cd768b69ec720d5814d7"
 	};
