@@ -2560,26 +2560,7 @@ p { text-align: left }
     -o-transition: all .3s ease;
     transition: all .3s ease;
 }
-.btn.btn-primary {
-    background-color: #3bafda;
-    border: none;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-}
-.btn.btn-primary:hover,
-.btn.btn-primary:active,
-.btn.btn-primary.hover {
-    background-color: #4fc1e9;
-    border: none;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-}
+
 .btn.btn-success {
     background-color: #8cc152;
     border: none;
@@ -3163,3 +3144,30 @@ border-bottom: 1px solid #b90140;
     .panel-default > .panel-heading + .panel-collapse > .panel-body {
         border-top-color: #ddd;
     }
+
+
+
+.btn-primary {
+	background-color: #444444;
+	border-color: #000;
+	border-right: 3px solid #000;
+border-bottom: 3px solid #000;
+border-top:none;
+border-left:none;
+/**margin-top: 10px;**/
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary.hover {
+	background-color: #000000;
+	border-right: 3px solid #444444;
+border-bottom: 3px solid #444444;
+border-top:none;
+border-left:none;
+
+}
+
+.form-horizontal .control-label, .form-horizontal .radio, .form-horizontal .checkbox, .form-horizontal .radio-inline, .form-horizontal .checkbox-inline {
+    padding-top: 7px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 5px;
+}
