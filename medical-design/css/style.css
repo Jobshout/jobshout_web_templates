@@ -1288,16 +1288,16 @@ li.tab-current a.icon.icon-box {
 }
 .services-breadcrumb {
     padding: 1em 0;
-    background: #f5f5f5;
+    background: #003666;
     text-align: center;
 }
 .services-breadcrumb ul li a {
-       color: #207fe2;
+       color: #fff;
     text-decoration: none;
 }
 .services-breadcrumb ul li {
     display: inline-block;
-      color: #222;
+      color: #fff;
 }
 .services-breadcrumb ul li i {
     padding: 0 1.5em;
@@ -1914,20 +1914,16 @@ h2.typoh2{
     letter-spacing: 4px;
 }
 .book-appointment {
-    background: rgb(17, 17, 17);
-    padding: 50px 30px;
+    background:#fff;
+	border:1px solid #DDDDDD;
+   padding: 26px 38px;
 }
 .book-appointment input[type="text"], .book-appointment input[type="date"], .book-appointment input[type="time"], .book-appointment input[type="email"],.book-appointment textarea {
-      width: 100%;
-    color: #fff;
-    outline: none;
+    width: 100%;
+	margin: 10px 0px;
     font-size: 0.9em;
     line-height: 25px;
        padding: 10px 14px;
-    border: none;
-    -webkit-appearance: none;
-    margin: .3em 0em 1em;
-    background: rgb(62, 61, 61);
 }
 .book-appointment textarea {
 	    resize: none;
@@ -1942,11 +1938,10 @@ h2.typoh2{
     padding: 12px 14px;
     border: none;
     margin: .3em 0em 1em;
-    background: rgb(62, 61, 61);
-	border-radius:0px!important;
+  	border-radius:0px!important;
 }
 .book-appointment select.option {
-       background: rgb(62, 61, 61);
+       
 }
 .book-appointment input[type=submit] {
     display: block;
@@ -1967,6 +1962,12 @@ h2.typoh2{
     -ms-transition: 0.5s all ease;
     letter-spacing: 1px;
 }
+
+.form-control{
+	margin:10px 0px;
+}
+
+
 .book-appointment input[type=submit]:hover {
       background: #7A8400;
     border-color: #7A8400;
@@ -2009,7 +2010,7 @@ h2.typoh2{
     float: left;
 }
 .book-appointment p {
-    color: #1da1f2;
+    color: #333333;
     font-size: 17px;
     letter-spacing: 2px;
     text-transform: capitalize;
@@ -2233,9 +2234,9 @@ p.wickedpicker__title {
 }
 .contact-grid {
     padding: 2em 2em;
-    background: #7A8400;
+    background: #003666;
     float: left;
-    width: 32%;
+    width: 32.33%;
     margin-right: 1%;
 }
 .con-w3l-info h4 {
@@ -2288,7 +2289,7 @@ p.con {
     color: #333;
 }
 .contact-top-agileits {
-    margin-bottom: 3em;
+    margin-bottom: 2em;
 }
 .map-grid-left{
 	background:#FFF;
@@ -2780,6 +2781,8 @@ ul.agileits_social_list.two li {
 		-o-background-size: cover;
 		min-height: 346px;
 	}
+	
+	
 	.navbar-brand {
 		float: left;
 		height: 67px;
@@ -4077,4 +4080,25 @@ letter-spacing: 1px;
 	text-align:center;
 	color:#fff;
 	font-size:1em;
+}
+
+
+.appointment{			
+		background: url(../images/appointment.jpg) no-repeat 0px 0px;
+		background-size: cover;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		height: 250px;
+		
+	}
+	
+
+.contactbnr{	
+	background: url(../images/contact.jpg) no-repeat 0px 0px;
+		background-size: cover;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		height: 250px;
 }
