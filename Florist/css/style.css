@@ -75,7 +75,7 @@ a:hover {
 /*-- nav --*/
 
 .agile_wthree_nav {
-	position: absolute;
+	
 	z-index: 999;
 	width: 100%;
 	margin: 0 auto;
@@ -896,7 +896,7 @@ ul.pagination {
 
 .navbar-nav {
 	float: left;
-	    margin: 1.7em 0em 0 58em;
+	margin: 1.7em 0em 0 46em;
 }
 
 .navbar-default .navbar-nav>li>a:hover,
@@ -958,6 +958,7 @@ nav.navbar.navbar-default {
 	font-size: 13px;
 	font-weight: 600;
 	padding: .8em 0;
+	
 }
 
 .agile_short_dropdown li a:before,
@@ -2396,7 +2397,8 @@ a.pa_italic:focus {
 }
 
 .wthree_panel {
-	margin: 2em 0 0;
+	margin: 0em 0 0;
+	margin-bottom: 20px;
 }
 
 .agileits_recent_posts_gridl {
@@ -3563,8 +3565,9 @@ p.footer_info_w3ls_agile {
 	.cd-header-buttons {
 		position: absolute;
 		display: inline-block;
-		top: -48px;
-		right: 14%;
+	top: -90px;
+right: 10%;
+
 	}
 	.portfolio-agileinfo .b-wrapper.two {
 		padding: 13.5em 0 0 0;
@@ -4064,3 +4067,10 @@ p.footer_info_w3ls_agile {
 	height:100%;
 	margin-top:-5px;
 }
+
+.single{
+	margin-top:25px;
+}
+
+
+
