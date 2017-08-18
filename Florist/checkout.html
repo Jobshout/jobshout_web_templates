@@ -1,111 +1,219 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-	<title>Florist</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta charset="utf-8">
-	
-	<!-- bootstrap-css -->
-	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-	<!--// bootstrap-css -->
-	<!-- css -->
-	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-	<!--// css -->
-	<link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all">
-	<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
-	
-	
-	<!-- font-awesome icons -->
-	<link href="css/font-awesome.css" rel="stylesheet">
-	<link href="css/fasthover.css" rel="stylesheet">
-	<script src="js/simpleCart.min.js"></script>	
-	<link href="css/product.css" rel="stylesheet">
-	
-	<!-- //font-awesome icons -->
-	<!-- font -->
-	<link href="//fonts.googleapis.com/css?family=Montserrat:200,200i,300,400,400i,500,600,700" rel="stylesheet">
-	<link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
-	<!-- //font -->
+<html lang="en">
+		<head>
+		<title>Florist</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
 
-	<!-- light-box -->
-	<link rel="stylesheet" href="css/poposlides.css">
+		<!-- bootstrap-css -->
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		<!--// bootstrap-css -->
+		<!-- css -->
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+		<!--// css -->
+		<link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all">
+		<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+
+		<!-- font-awesome icons -->
+		<link href="css/font-awesome.css" rel="stylesheet">
+		<link href="css/fasthover.css" rel="stylesheet">
+		<script src="js/simpleCart.min.js"></script>
+		<link href="css/product.css" rel="stylesheet">
+
+		<!-- //font-awesome icons -->
+		<!-- font -->
+		<link href="//fonts.googleapis.com/css?family=Montserrat:200,200i,300,400,400i,500,600,700" rel="stylesheet">
+		<link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+		<!-- //font -->
+
+		<!-- light-box -->
+		<link rel="stylesheet" href="css/poposlides.css">
 		<link rel="stylesheet" href="css/popuo-box.css">
-	
-	
-	<!-- //light-box -->
-</head>
+		<style>
+.prev, .next {
+	position: absolute;
+	z-index: 99;
+	margin-top: 125px;
+}
+.slides {
+	position: relative;
+	height: 342px;
+	width: 100%;
+	margin: auto;
+	float: left;
+	border: 1px solid #ddd;
+	overflow: hidden;
+}
+</style>
 
-<body>
-	<div class="main_agileits" id="page">
-		<div class="agile_wthree_nav">
-			<nav class="navbar navbar-default">
-				<div class="navbar-header navbar-left">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					<h1  CLASS="hidden-xs hidden-sm"><a class="navbar-brand" href="index.html"><span><i class="fa fa-snowflake-o" aria-hidden="true"></i></span>Florist</a></h1>
-					<h1 CLASS="visible-xs visible-sm"><a class="navbar-brand" href="index.html"><span><i class="fa fa-snowflake-o" aria-hidden="true"></i></span></a></h1>
-				</div>
-				<!-- Collect the nav links, forms, and other content for toggling -->
+		<!-- //light-box -->
+		</head>
 
-				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-					<nav class="link-effect-8" id="link-effect-8">
-						<ul class="nav navbar-nav">
-							<li class="active"><a href="index.html">Home</a></li>
-							
-						
-						<li><a href="#">Delivery</a></li>
-						<li><a href="#">Types of flowers</a></li>
-						<li><a href="#">Contact Us</a></li>
-						
-						</ul>
-					</nav>
-				</div>
-				
-				<div>
-				<div class="cart box_1">
-				<a href="checkout.html">
-				<i CLASS="fa fa-cart-plus"> </i>			
-					<div class="total">
-					(<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-				
-				</a>
-			
-			
-			</div>
-				</div>
-				
-				<div class="agile_search">
-				
-				
-					<!-- cd-search -->
-					<div class="cd-main-header">
-						<ul class="cd-header-buttons">
-							<li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
-						</ul>
-						<!-- cd-header-buttons -->
-					</div>
-					<div id="cd-search" class="cd-search agileinfo">
-					
-					
-						<form action="#" method="post">
-							<input name="Search" type="search" placeholder="Click enter after typing...">
-						</form>
-					</div>
-					<!-- //cd-search -->
-
-				</div>
-			</nav>
-
+		<body>
+<div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+								<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times;</button>
+								<h4 class="modal-title" id="myModalLabel"> Don't Wait, Login now!</h4>
+						</div>
+								<div class="modal-body modal-body-sub">
+								<div class="row">
+												<div class=" col-lg-6 col-md-6 modal_body_left modal_body_left1" style="border-right: 1px dotted #C2C2C2;padding-right:1em;">
+												<div class="sap_tabs">
+																<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+																<ul>
+																				<li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Sign in</span></li>
+																				<li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>Sign up</span></li>
+																		</ul>
+																<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+																				<div class="facts">
+																				<div class="register">
+																								<form action="#" method="post">
+																								<input name="Email" placeholder="Email Address" type="text" required="">
+																								<input name="Password" placeholder="Password" type="password" required="">
+																								<div class="sign-up">
+																												<input type="submit" value="Sign in"/>
+																										</div>
+																						</form>
+																						</div>
+																		</div>
+																		</div>
+																<div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
+																				<div class="facts">
+																				<div class="register">
+																								<form action="#" method="post">
+																								<input placeholder="Name" name="Name" type="text" required="">
+																								<input placeholder="Email Address" name="Email" type="email" required="">
+																								<input placeholder="Password" name="Password" type="password" required="">
+																								<input placeholder="Confirm Password" name="Password" type="password" required="">
+																								<div class="sign-up">
+																												<input type="submit" value="Create Account"/>
+																										</div>
+																						</form>
+																						</div>
+																		</div>
+																		</div>
+														</div>
+														</div>
+										</div>
+												<div CLASS=" col-lg-6 col-md-6 " STYLE="padding-left:0px;"> <img SRC="images/login.jpg" CLASS="img-responsive"> </div>
+												
+										</div>
+						</div>
+						</div>
 		</div>
-
-		</nav>
-		
-
-		
-	</div>
+		</div>
+<div class="main_agileits" id="page">
+				<div class="agile_wthree_nav">
+				<nav class="navbar navbar-default">
+								<div CLASS="row">
+								<div CLASS="col-lg-3  col-sm-12">
+												<div class="navbar-header navbar-left">
+												<h1 CLASS="hidden-xs"  ><a class="navbar-brand" href="index.html"><span><i class="fa fa-snowflake-o" aria-hidden="true"></i></span>Florist</a></h1>
+												<h1 CLASS="visible-xs"  ><a class="navbar-brand" href="index.html"><span><i class="fa fa-snowflake-o" aria-hidden="true"></i></span></a></h1>
+												<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+										</div>
+										</div>
+								<div CLASS="col-lg-7 col-sm-9">
+												<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+												<nav class="link-effect-8" id="link-effect-8">
+																<ul class="nav navbar-nav">
+																<li class="active"><a href="index.html">Home</a></li>
+																<li><a href="#">Delivery</a></li>
+																<li><a href="#">Types of flowers</a></li>
+																<li><a href="#">Contact Us</a></li>
+														</ul>
+														</nav>
+										</div>
+										</div>
+								<div CLASS="col-lg-2 col-sm-md-12  hidden-sm hidden-xs " STYLE="padding:0px;">
+												<div CLASS="pull-right "  >
+												<div CLASS="register2"> <a href="#" data-toggle="modal" data-target="#myModal88" ><span class="glyphicon glyphicon-user" STYLE="color:#000;" aria-hidden="true"></span></a></div>
+												<div class="cart box_1"> <a href="checkout.html"> <i CLASS="fa fa-cart-plus"> </i>
+														<div class="total"> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+														</a> </div>
+												<div class="agile_search"> 
+																<!-- cd-search -->
+																<div class="cd-main-header">
+																<ul class="cd-header-buttons">
+																				<li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+																		</ul>
+																<!-- cd-header-buttons --> 
+														</div>
+																<div id="cd-search" class="cd-search agileinfo">
+																<form action="#" method="post">
+																				<input name="Search" type="search" placeholder="Click enter after typing...">
+																		</form>
+														</div>
+																<!-- //cd-search --> 
+																
+														</div>
+										</div>
+										</div>
+										
+										
+										
+										<div CLASS="col-sm-12 pull-right visible-sm hidden-xs " STYLE="padding:0px;     position: absolute;">
+												
+												<div CLASS="register3" STYLE="float:right;"> <a href="#" data-toggle="modal" data-target="#myModal88" ><span class="glyphicon glyphicon-user" STYLE="color:#000;" aria-hidden="true"></span></a></div>
+												<div class="cart box_2"> <a href="checkout.html"> <i CLASS="fa fa-cart-plus"> </i>
+														<div class="total"> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+														</a> </div>
+												<div class="agile_search"> 
+																<!-- cd-search -->
+																<div class="cd-main-header">
+																<ul class="cd-header-buttons2">
+																				<li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+																		</ul>
+																<!-- cd-header-buttons --> 
+														</div>
+																<div id="cd-search" class="cd-search agileinfo">
+																<form action="#" method="post">
+																				<input name="Search" type="search" placeholder="Click enter after typing...">
+																		</form>
+														</div>
+																<!-- //cd-search --> 
+																
+														</div>
+										</div>
+										
+										
+										
+										
+										
+										<div CLASS="col-sm-12 pull-right visible-xs  " STYLE="padding:0px; position: relative; top: -55px; right: 67px;">
+												
+												<div CLASS="register3" STYLE="float:right;"> <a href="#" data-toggle="modal" data-target="#myModal88" ><span class="glyphicon glyphicon-user" STYLE="color:#000;" aria-hidden="true"></span></a></div>
+												<div class="cart box_2"> <a href="checkout.html"> <i CLASS="fa fa-cart-plus"> </i>
+														<div class="total"> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+														</a> </div>
+												<div class="agile_search"> 
+																<!-- cd-search -->
+																<div class="cd-main-header">
+																<ul class="cd-header-buttons3">
+																				<li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+																		</ul>
+																<!-- cd-header-buttons --> 
+														</div>
+																<div id="cd-search" class="cd-search agileinfo">
+																<form action="#" method="post">
+																				<input name="Search" type="search" placeholder="Click enter after typing...">
+																		</form>
+														</div>
+																<!-- //cd-search --> 
+																
+														</div>
+										</div>
+										
+										
+										
+						</div>
+								<div> </div>
+						</nav>
+		</div>
+				</nav>
+		</div>
 	
 	
 	
