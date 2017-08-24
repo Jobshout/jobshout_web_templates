@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+		<head>
+		<title>Florist</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<!-- bootstrap-css -->
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		<!--// bootstrap-css -->
+		<!-- css -->
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+		<!--// css -->
+		<link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all">
+		<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+		<!-- font-awesome icons -->
+		<link href="css/font-awesome.css" rel="stylesheet">
+		<link href="css/fasthover.css" rel="stylesheet">
+		<link href="css/product.css" rel="stylesheet">
+		<!-- //font-awesome icons -->
+		<!-- font -->
+		<link href="//fonts.googleapis.com/css?family=Montserrat:200,200i,300,400,400i,500,600,700" rel="stylesheet">
+		<link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+		<!-- //font -->
+		<!-- light-box -->
+		<!-- //light-box -->
+		</head>
+<body>
+<div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times;</button>
+<h4 class="modal-title" id="myModalLabel"> Don't Wait, Login now!</h4>
+</div>
+<div class="modal-body modal-body-sub">
+<div class="row">
+<div class=" col-lg-6 col-md-6 modal_body_left modal_body_left1" style="border-right: 1px dotted #C2C2C2;padding-right:1em;">
+<div class="sap_tabs">
+																<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+																<ul>
+																				<li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Sign in</span></li>
+																				<li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>Sign up</span></li>
+																		</ul>
+																<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+																				<div class="facts">
+																				<div class="register">
+																								<form action="#" method="post">
+																								<input name="Email" placeholder="Email Address" type="text" required="">
+																								<input name="Password" placeholder="Password" type="password" required="">
+																								<div class="sign-up">
+																												<input type="submit" value="Sign in"/>
+																										</div>
+																						</form>
+																						</div>
+																		</div>
+																		</div>
+																<div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
+																				<div class="facts">
+																				<div class="register">
+																								<form action="#" method="post">
+																								<input placeholder="Name" name="Name" type="text" required="">
+																								<input placeholder="Email Address" name="Email" type="email" required="">
+																								<input placeholder="Password" name="Password" type="password" required="">
+																								<input placeholder="Confirm Password" name="Password" type="password" required="">
+																								<div class="sign-up">
+																												<input type="submit" value="Create Account"/>
+																										</div>
+																						</form>
+																						</div>
+																		</div>
+																		</div>
+														</div>
+														</div>
+										</div>
+												<div CLASS=" col-lg-6 col-md-6 " STYLE="padding-left:0px;"> <img SRC="images/login.jpg" CLASS="img-responsive"> </div>
+												
+										</div>
+						</div>
+						</div>
+		</div>
+		</div>
+<div class="main_agileits" id="page">
+				<div class="agile_wthree_nav">
+				<nav class="navbar navbar-default">
+								<div CLASS="row">
+								<div CLASS="col-lg-3  col-sm-12">
+												<div class="navbar-header navbar-left">
+												<h1 CLASS="hidden-xs"  ><a class="navbar-brand" href="index.html"><span><i class="fa fa-snowflake-o" aria-hidden="true"></i></span>Florist</a></h1>
+												<h1 CLASS="visible-xs"  ><a class="navbar-brand" href="index.html"><span><i class="fa fa-snowflake-o" aria-hidden="true"></i></span></a></h1>
+												<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+										</div>
+										</div>
+								<div CLASS="col-lg-7 col-sm-9">
+												<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+												<nav class="link-effect-8" id="link-effect-8">
+																<ul class="nav navbar-nav">
+																<li class="active"><a href="index.html">Home</a></li>
+																<li><a href="#">Delivery</a></li>
+																<li><a href="#">Types of flowers</a></li>
+																<li><a href="#">Contact Us</a></li>
+														</ul>
+														</nav>
+										</div>
+										</div>
+								<div CLASS="col-lg-2 col-sm-md-12  hidden-sm hidden-xs " STYLE="padding:0px;">
+												<div CLASS="pull-right "  >
+												<div CLASS="register2"> <a href="#" data-toggle="modal" data-target="#myModal88" ><span class="glyphicon glyphicon-user" STYLE="color:#000;" aria-hidden="true"></span></a></div>
+												<div class="cart box_1"> <a href="checkout.html"> <i CLASS="fa fa-cart-plus"> </i>
+														<div class="total"> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+														</a> </div>
+												<div class="agile_search"> 
+																<!-- cd-search -->
+																<div class="cd-main-header">
+																<ul class="cd-header-buttons">
+																				<li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+																		</ul>
+																<!-- cd-header-buttons --> 
+														</div>
+																<div id="cd-search" class="cd-search agileinfo">
+																<form action="#" method="post">
+																				<input name="Search" type="search" placeholder="Click enter after typing...">
+																		</form>
+														</div>
+																<!-- //cd-search --> 
+																
+														</div>
+										</div>
+										</div>
+										
+										
+										
+										<div CLASS="col-sm-12 pull-right visible-sm hidden-xs " STYLE="padding:0px;     position: absolute;">
+												
+												<div CLASS="register3" STYLE="float:right;"> <a href="#" data-toggle="modal" data-target="#myModal88" ><span class="glyphicon glyphicon-user" STYLE="color:#000;" aria-hidden="true"></span></a></div>
+												<div class="cart box_2"> <a href="checkout.html"> <i CLASS="fa fa-cart-plus"> </i>
+														<div class="total"> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+														</a> </div>
+												<div class="agile_search"> 
+																<!-- cd-search -->
+																<div class="cd-main-header">
+																<ul class="cd-header-buttons2">
+																				<li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+																		</ul>
+																<!-- cd-header-buttons --> 
+														</div>
+																<div id="cd-search" class="cd-search agileinfo">
+																<form action="#" method="post">
+																				<input name="Search" type="search" placeholder="Click enter after typing...">
+																		</form>
+														</div>
+																<!-- //cd-search --> 
+																
+														</div>
+										</div>
+										
+										
+										
+										
+										
+										<div CLASS="col-sm-12 pull-right visible-xs  " STYLE="padding:0px; position: relative; top: -55px; right: 67px;">
+												
+												<div CLASS="register3" STYLE="float:right;"> <a href="#" data-toggle="modal" data-target="#myModal88" ><span class="glyphicon glyphicon-user" STYLE="color:#000;" aria-hidden="true"></span></a></div>
+												<div class="cart box_2"> <a href="checkout.html"> <i CLASS="fa fa-cart-plus"> </i>
+														<div class="total"> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+														</a> </div>
+												<div class="agile_search"> 
+																<!-- cd-search -->
+																<div class="cd-main-header">
+																<ul class="cd-header-buttons3">
+																				<li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+																		</ul>
+																<!-- cd-header-buttons --> 
+														</div>
+																<div id="cd-search" class="cd-search agileinfo">
+																<form action="#" method="post">
+																				<input name="Search" type="search" placeholder="Click enter after typing...">
+																		</form>
+														</div>
+																<!-- //cd-search --> 
+																
+														</div>
+										</div>
+										
+										
+										
+						</div>
+								<div> </div>
+						</nav>
+		</div>
+				</nav>
+		</div>
+	
+
+	<div class="banner_bottom_w3ls_agile">
+		<div class="container">
+			<h3 class="agile_heading inner">Site map</h3>
+			<p class="sub_cap">Phasellus dapibus felis elit, sed accumsan arcu gravida vitae.</p>
+			<div class="sitemap">
+		<div class="container"> 
+			
+			<div class="sitemap-row"> 
+				<nav class="sitemap-tabs" data-spy="affix" data-offset-top="400"> 
+					<div  id="myNavbar">
+						<ul> 
+						<li><a href="#w3sec3"><i class="fa fa-child"></i> Florist Services</a></li>
+							<li><a href="#w3sec1"><i class="fa fa-snowflake-o"></i> Wedding Flowers</a></li>
+							<li><a href="#w3sec2"><i class="fa fa-slideshare"></i>Beauty Flowers</a></li>
+							
+							<li><a href="#w3sec4"><i class="fa fa-home"></i> Birthday Flowers</a></li>
+							<li><a href="#w3sec5"><i class="fa fa-futbol-o"></i>Love & Romance </a></li> 
+						</ul> 
+					</div>
+				</nav>	
+				
+				
+				
+				<div id="w3sec3" class="container-fluid sitemap-text">
+					
+					 <div class="sitemap-row2  sitemap-text"> 
+				<h3 class="w3sitemap-title"><i class="fa fa-snowflake-o"></i>Florist Services</h3>  
+				<div class="col-md-4 sitemap-text-grids">
+					<ul>  
+						<li><a href="#">Company Profile</a></li> 
+						<li><a href="#">Gallery</a></li>
+						<li><a href="#">Services</a></li>  
+					</ul>
+				</div>
+				<div class="col-md-4 sitemap-text-grids">
+					<ul>  
+						<li><a href="#">About Us</a></li> 
+						<li><a href="#">Contact Us</a></li>  
+						<li><a href="#">Login</a></li>  
+					</ul>
+				</div>
+				<div class="col-md-4 sitemap-text-grids">
+					<ul>  
+						<li><a href="#">Sign Up</a></li>  
+						<li><a href="#">Order Status</a></li> 
+						<li><a href="#">FAQ</a></li>  
+					</ul>
+				</div>
+				<div class="clearfix"> </div>
+			</div>	
+					 
+					 
+					
+					<div class="clearfix"> </div> 	
+				</div>
+				
+				
+				
+				<div id="w3sec1" class="container-fluid sitemap-text">
+					<h3 class="w3sitemap-title"><i class="fa fa-snowflake-o"></i> Wedding Flowers</h3>  
+					<div class="col-md-3 sitemap-text-grids"> 
+						<h5 class="sitemap-text-title"><a href="products.html">Roses</a></h5> 
+						<ul>  
+							<li><a href="products.html">Rose</a></li>
+							<li><a href="products.html">Tulip</a></li>
+							<li><a href="products.html">Calla Lily</a></li>
+							<li><a href="products.html">Lily of the Valley</a></li> 
+							<li><a href="products.html">Hydrangeas</a> </li>
+							<li><a href="products.html">Peony</a></li>
+							
+							 
+						</ul>  
+						
+					</div>	
+					<div class="col-md-3 sitemap-text-grids"> 
+						<h5 class="sitemap-text-title"><a href="products.html">Love</a></h5>
+						<ul>  
+							<li><a href="products.html">Rose</a></li>
+							<li><a href="products.html">Tulip</a></li>
+							<li><a href="products.html">Calla Lily</a></li>
+							<li><a href="products.html">Lily of the Valley</a></li> 
+							<li><a href="products.html">Hydrangeas</a> </li>
+							<li><a href="products.html">Peony</a></li>
+							
+							 
+						</ul>  
+						
+					</div>	
+					<div class="col-md-3 sitemap-text-grids"> 
+						<h5 class="sitemap-text-title"><a href="products.html">Wedding</a></h5> 
+					<ul>  
+							<li><a href="products.html">Rose</a></li>
+							<li><a href="products.html">Tulip</a></li>
+							<li><a href="products.html">Calla Lily</a></li>
+							<li><a href="products.html">Lily of the Valley</a></li> 
+							<li><a href="products.html">Hydrangeas</a> </li>
+							<li><a href="products.html">Peony</a></li>
+							
+							 
+						</ul>   
+					</div>	
+					<div class="col-md-3 sitemap-text-grids">	
+						<h5 class="sitemap-text-title"><a href="products.html">Dream Flower</a></h5> 
+						<ul>  
+							<li><a href="products.html">Rose</a></li>
+							<li><a href="products.html">Tulip</a></li>
+							<li><a href="products.html">Calla Lily</a></li>
+							<li><a href="products.html">Lily of the Valley</a></li> 
+							<li><a href="products.html">Hydrangeas</a> </li>
+							<li><a href="products.html">Peony</a></li>
+							
+							 
+						</ul>  
+					</div>	
+					<div class="clearfix"> </div>
+				</div>
+				<div id="w3sec2" class="container-fluid sitemap-text">
+					<h3 class="w3sitemap-title"><i class="fa fa-heart"></i> Beauty Flowers</h3>  
+					<div class="col-md-3 sitemap-text-grids"> 
+						<h5 class="sitemap-text-title"><a href="products.html">Roses</a></h5> 
+						<ul>  
+							<li><a href="products.html">Rose</a></li>
+							<li><a href="products.html">Tulip</a></li>
+							<li><a href="products.html">Calla Lily</a></li>
+							<li><a href="products.html">Lily of the Valley</a></li> 
+							<li><a href="products.html">Hydrangeas</a> </li>
+							<li><a href="products.html">Peony</a></li>
+							
+							 
+						</ul>  
+						
+					</div>	
+					<div class="col-md-3 sitemap-text-grids"> 
+						<h5 class="sitemap-text-title"><a href="products.html">Love</a></h5>
+						<ul>  
+							<li><a href="products.html">Rose</a></li>
+							<li><a href="products.html">Tulip</a></li>
+							<li><a href="products.html">Calla Lily</a></li>
+							<li><a href="products.html">Lily of the Valley</a></li> 
+							<li><a href="products.html">Hydrangeas</a> </li>
+							<li><a href="products.html">Peony</a></li>
+							
+							 
+						</ul>  
+						
+					</div>	
+					<div class="col-md-3 sitemap-text-grids"> 
+						<h5 class="sitemap-text-title"><a href="products.html">Wedding</a></h5> 
+					<ul>  
+							<li><a href="products.html">Rose</a></li>
+							<li><a href="products.html">Tulip</a></li>
+							<li><a href="products.html">Calla Lily</a></li>
+							<li><a href="products.html">Lily of the Valley</a></li> 
+							<li><a href="products.html">Hydrangeas</a> </li>
+							<li><a href="products.html">Peony</a></li>
+							
+							 
+						</ul>   
+					</div>	
+					<div class="col-md-3 sitemap-text-grids">	
+						<h5 class="sitemap-text-title"><a href="products.html">Dream Flower</a></h5> 
+						<ul>  
+							<li><a href="products.html">Rose</a></li>
+							<li><a href="products.html">Tulip</a></li>
+							<li><a href="products.html">Calla Lily</a></li>
+							<li><a href="products.html">Lily of the Valley</a></li> 
+							<li><a href="products.html">Hydrangeas</a> </li>
+							<li><a href="products.html">Peony</a></li>
+							
+							 
+						</ul>  
+					</div>	
+					<div class="clearfix"> </div>
+				</div>
+				
+				<div id="w3sec4" class="container-fluid sitemap-text">
+					<h3 class="w3sitemap-title"><i class="fa fa-home"></i> Home & Furniture</h3> 
+					<div class="col-md-3 sitemap-text-grids">
+						<h5 class="sitemap-text-title"><a href="products3.html">Kitchen Uses</a></h5> 
+						<ul>  
+							<li><a href="products3.html">Dinner Sets </a></li> 
+							<li><a href="products3.html">Cookware & Bakeware </a></li>
+							<li><a href="products3.html">Containers & Jars </a></li>
+							<li><a href="products3.html">Kitchen Tools </a></li>
+							<li><a href="products3.html">Food Storage</a></li>
+							<li><a href="products3.html">Casseroles</a></li>
+						</ul>
+						<h5 class="sitemap-text-title"><a href="products3.html">Garage Storage</a></h5>  
+						<ul>  
+							<li><a href="products3.html">Baskets & Bins </a></li>  
+							<li><a href="products3.html">Free Standing Shelves </a></li>
+							<li><a href="products3.html">Floor cleaning</a></li>
+							<li><a href="products3.html">Tool Kits</a></li>
+						</ul>
+					</div> 	
+					<div class="col-md-3 sitemap-text-grids">
+						<h5 class="sitemap-text-title"><a href="products3.html">Furniture</a></h5> 
+						<ul>  
+							<li><a href="products3.html">Bedroom </a></li> 
+							<li><a href="products3.html">Dining Room </a></li>
+							<li><a href="products3.html">Kids' Furniture </a></li>
+							<li><a href="products3.html">Living Room</a></li>
+							<li><a href="products3.html">Office</a></li>
+							<li><a href="products3.html">Mattresses</a></li>
+						</ul>
+					</div> 
+					<div class="col-md-3 sitemap-text-grids">
+						<h5 class="sitemap-text-title"><a href="products3.html">Home Decor </a></h5> 
+						<ul>  
+							<li><a href="products3.html">Lighting</a></li> 
+							<li><a href="products3.html">Painting</a></li>
+							<li><a href="products3.html">Curtains & Blinds</a></li>
+							<li><a href="products3.html">Patio Furniture</a></li>
+							<li><a href="products3.html">Wardrobes & Cabinets</a></li>
+							<li><a href="products3.html">Mattresses</a></li>
+						</ul> 
+					</div> 
+					<div class="col-md-3 sitemap-text-grids">
+						<h5 class="sitemap-text-title"><a href="products3.html">Gardening & Lawn </a></h5> 
+						<ul>    
+							<li><a href="products3.html">Gardening </a></li> 
+							<li><a href="products3.html">Landscaping </a></li>
+							<li><a href="products3.html">Sheds</a></li>
+							<li><a href="products3.html">Outdoor Storage  </a></li>
+							<li><a href="products3.html">Garden & Ideas </a></li>
+							<li><a href="products3.html">Patio Tips</a></li>
+						</ul>
+					</div>
+					<div class="clearfix"> </div> 
+				</div>
+				<div id="w3sec5" class="container-fluid sitemap-text">
+					<h3 class="w3sitemap-title"><i class="fa fa-shopping-basket"></i> Sports & Fitness</h3>
+					<div class="col-md-3 sitemap-text-grids">
+						<h5 class="sitemap-text-title"><a href="products4.html">Single Sports </a></h5> 
+						<ul>  
+							<li><a href="products4.html">Bikes </a></li> 
+							<li><a href="products4.html">Fishing  </a></li>
+							<li><a href="products4.html">Cycling </a></li>
+							<li><a href="products4.html">Musical Instruments</a></li>
+							<li><a href="products4.html">Archery </a></li>
+						</ul>
+						<h5 class="sitemap-text-title"><a href="products4.html">Other</a></h5>  
+						<ul> 
+							<li><a href="products4.html">Riding Gears & More </a></li> 
+							<li><a href="products4.html">Body Massagers </a></li>
+							<li><a href="products4.html">Health Monitors </a></li>
+							<li><a href="products4.html">Health Drinks </a></li> 
+						</ul>
+					</div> 	
+					<div class="col-md-3 sitemap-text-grids">
+						<h5 class="sitemap-text-title"><a href="products4.html">Team Sports</a></h5> 
+						<ul>  
+							<li><a href="products4.html">Cricket </a></li> 
+							<li><a href="products4.html">Badminton </a></li>
+							<li><a href="products4.html">Swimming Gear </a></li>
+							<li><a href="products4.html">Sports Apparel </a></li>
+							<li><a href="products4.html">Indoor games</a></li>
+						</ul> 
+					</div> 
+					<div class="col-md-3 sitemap-text-grids">
+						<h5 class="sitemap-text-title"><a href="products4.html">Fitness </a></h5> 
+						<ul> 
+							<li><a href="products4.html">Fitness Accessories </a></li> 
+							<li><a href="products4.html">Exercise Machines </a></li>
+							<li><a href="products4.html">Ellipticals </a></li>
+							<li><a href="products4.html">Home Gyms</a></li> 
+						</ul>
+					</div> 
+					<div class="col-md-3 sitemap-text-grids">
+						<h5 class="sitemap-text-title"><a href="products4.html">Camping </a></h5> 
+						<ul> 
+							<li><a href="products4.html">Air Beds</a></li> 
+							<li><a href="products4.html">Tents </a></li>
+							<li><a href="products4.html">Gazebo's & Shelters</a></li>
+							<li><a href="products4.html">Coolers </a></li>
+							<li><a href="products4.html">Canopies</a></li>
+							<li><a href="products4.html">Sleeping Bags</a></li> 
+							<li><a href="products4.html">Shooting </a></li> 
+							<li><a href="products4.html">Knives & Tools </a></li>
+							<li><a href="products4.html">Optics & Binoculars </a></li>
+							<li><a href="products4.html">Lights & Lanterns </a></li>
+							<li><a href="products4.html">Hunting Clothing </a></li> 
+						</ul>
+					</div>
+					<div class="clearfix"> </div>  
+				</div>
+				
+				
+				
+				
+				  
+			</div>
+			<script>
+			$(document).ready(function(){
+		
+			  $('body').scrollspy({target: ".sitemap-tabs", offset: 50});
+
+			 
+			  $("#myNavbar a").on('click', function(event) {
+				
+				if (this.hash !== "") {
+				 
+				  event.preventDefault();
+
+				 
+				  var hash = this.hash;
+
+				
+				  $('html, body').animate({
+					scrollTop: $(hash).offset().top
+				  }, 800, function(){
+			   
+				
+					window.location.hash = hash;
+				  });
+				}  
+			  });
+			});
+			</script> 
+			
+		</div>
+	</div>
+		</div>
+
+	</div>
+	
+					
+	
+	<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<h2><a href="index.html"><i class="fa fa-snowflake-o" aria-hidden="true"></i>  Florist</a></h2>
+	
+			<h3>Subscribe To  Newsletter</h3>
+			
+			<form action="#" method="post">
+				<input type="email" name="email" placeholder="Your email..." required="">
+				<input type="submit" value="Subscribe">
+			</form>
+			<div class="agileits_layout_nav">
+				<div class="agileits_layout_nav_left">
+					<ul>
+						<li class="active"><a href="#">Home</a></li>
+						<li><a href="#">Delivery</a></li>
+						<li><a href="#">Types of flowers</a></li>
+						<li><a href="#">Contact Us</a></li>
+					</ul>
+				</div>
+				<div class="agileits_layout_nav_right">
+					<ul>
+						<li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="agile_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="w3_agile_dribble"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="w3_agile_vimeo"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<p>© 2017 Florist All rights reserved | Powered by <a href="#">Jobshout</a></p>
+		</div>
+	</div>
+	<!-- //footer -->
+	<script src="js/jquery-2.1.4.min.js"></script>
+	
+	
+	
+	<script src="js/search.js"></script>
+	
+	
+	
+	
+	<script src="js/poposlides.js">
+	</script>
+	<script>
+		$(".slides").poposlides();
+	</script>
+		
+	<script src="js/jquery.chocolat.js "></script>
+	
+	
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	
+							
+	
+	
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+	
+	
+	<script>
+									$('.value-plus').on('click', function(){
+										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
+										divUpd.text(newVal);
+									});
+
+									$('.value-minus').on('click', function(){
+										var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
+										if(newVal>=1) divUpd.text(newVal);
+									});
+									</script>
+	
+	
+	<script>$(document).ready(function(c) {
+								$('.close3').on('click', function(c){
+									$('.rem3').fadeOut('slow', function(c){
+										$('.rem3').remove();
+									});
+									});	  
+								});
+						   </script>
+	
+	
+	<script>
+									$('.value-plus1').on('click', function(){
+										var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)+1;
+										divUpd.text(newVal);
+									});
+
+									$('.value-minus1').on('click', function(){
+										var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)-1;
+										if(newVal>=1) divUpd.text(newVal);
+									});
+									</script>
+	<!-- //here ends scrolling icon -->
+
+
+		
+	<!-- carousel -->
+	<script defer src="js/jquery.flexslider.js"></script>
+					
+					<script>
+					// Can also be used with $(document).ready()
+					$(window).load(function() {
+					  $('.flexslider').flexslider({
+						animation: "slide",
+						controlNav: "thumbnails"
+					  });
+					});
+					</script>
+	
+	
+	<script>$(document).ready(function(c) {
+								$('.close1').on('click', function(c){
+									$('.rem1').fadeOut('slow', function(c){
+										$('.rem1').remove();
+									});
+									});	  
+								});
+						   </script>
+	
+	
+	
+	
+	<!-- //carousel -->
+	<script src="js/bootstrap.js"></script>
+	
+</body>
+
+</html>
