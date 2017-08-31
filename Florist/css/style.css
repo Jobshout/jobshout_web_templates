@@ -4539,3 +4539,97 @@ h5.sitemap-text-title {
 /*-----//Sitemap---end--*/
 
 
+
+
+.errorpage{
+	padding-top:10px;
+}
+
+.errorpage h2{
+	font-size: 24px;
+line-height: 36px;
+
+	letter-spacing:1.1px;
+	color:#444!important;
+	margin-top: 0px;
+}
+
+.errorpage h2 span {
+    color: #ff0101;
+}
+
+
+.errorpage p{
+	font-size: 15px;
+line-height: 20px;
+
+}
+
+.errorpage h3{
+	background: #ff0101;
+	padding: 9px 10px;
+letter-spacing: 0.1px;
+font-size: 15px;
+
+
+	color:#FFFFFF;
+	border-radius:5px;
+	
+	
+}
+
+.errorpage ul li{
+	padding-left:5px;
+	line-height: 26px;
+font-size: 14px;
+
+}
+
+
+.accordion-item{
+	padding:0px;
+	margin:0px;
+}
+
+.accordion-item a{
+	color: #FFF;
+display: block;
+font-size: 1.8rem;
+padding: 8px 35px 8px 15px;
+position: relative;
+}
+
+
+.accordion-item ul li a{
+
+color: #FFF;
+display: block;
+font-size: 1.1rem;
+padding: 5px 35px 5px 15px;
+position: relative;
+}
+
+
+.errorpage ul{
+	padding-left:18px;
+	margin-bottom:15px;
+}
+	
+	
+.errorpage ul li{
+	line-height:34px;
+}	
+
+.errorpage ul li a{
+	color:#444;
+}
+
+.errorpage ul li a:hover{
+	color:#ff0101;
+}
+
+	
+	
+	
+
+
