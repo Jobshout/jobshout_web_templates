@@ -839,3 +839,241 @@ line-height: 23px;
 }
 
 
+.content-iner{
+	border: 1px solid #ddd;
+overflow: hidden;
+padding:15px 0px;
+padding-bottom: 10px;
+margin-bottom:18px;
+transition:all ease 0.5s;
+
+}
+
+.content-iner:hover{
+-webkit-box-shadow: 1px 1px 11px -2px rgba(0,0,0,0.33);
+-moz-box-shadow: 1px 1px 11px -2px rgba(0,0,0,0.33);
+box-shadow: 1px 1px 11px -2px rgba(0,0,0,0.33);
+}
+
+
+.content-iner p{
+	text-align:justify;
+	
+}
+
+.content-iner h1 {
+	font-size: 19px;
+	padding-top: 0px;
+	margin-top: 0px;
+	color: #444;
+	font-weight: 400;
+}
+
+.content-iner h1 span{
+	color:#2e0f83;
+	
+}
+
+.content-iner a {
+  float:right;
+  margin-top:20px;
+  background: #2e0f83 none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 3px;
+   color: #fff;
+   font-size:14px;
+  padding: 4px 20px;
+  text-transform: uppercase;
+  transition: all 0.4s ease 0s;
+}
+
+.content-iner a:hover {
+  background: #000 none repeat scroll 0 0;
+ 
+}
+
+
+
+.pro-short{
+	margin-bottom:10px;
+}
+
+.pro-short h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.cat-code {
+  color: #777;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 11px 0;
+  font-family: "Open Sans",sans-serif;
+}
+
+
+.rating-rew i {
+  color: gold;
+  font-size: 18px;
+}
+
+.rating-rew a{ color:#777; font-weight:600; font-size:14px}
+
+.price-quanty {
+    float: left;
+    margin: 30px 0;
+    width: 100%;
+	font-family: "Open Sans",sans-serif;
+}
+.price {
+    float: left;
+    width: 30%;
+}
+
+.price-new {
+  color: #007cb8;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+.price-old {
+  color: #888;
+  text-decoration: line-through;
+}
+
+.quantity button {
+  background: #3b4850 none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 3px;
+  box-shadow: 0 3px 0 0 #273035;
+  color: #fff;
+  padding: 6px 25px;
+  text-transform: uppercase;
+  transition: all 0.4s ease 0s;
+}
+
+.quantity button:hover {
+  background: #007cb8 none repeat scroll 0 0;
+  box-shadow: 0 3px 0 0 #02547b;
+}
+
+
+.quantity input {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    height: 37px;
+    margin: 12px 25px 0 0;
+    text-align: center;
+    width: 67px;
+}
+
+.reviews{ font-family: 'Open Sans', sans-serif;}
+
+.reviews h2 {
+  font-size: 21px;
+  margin: 21px 0;
+}
+
+
+.rewview-prt {
+    border-bottom: 1px dashed #ddd;
+    float: left;
+    margin: 0 0 40px;
+    padding-bottom: 26px;
+    width: 100%;
+}
+.usr-img {
+    float: left;
+    width: 8%;
+}
+.usr-img img {
+    border: 2px solid #ddd;
+    border-radius: 100%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    height: 70px;
+    width: 70px;
+}
+.usr-dtl {
+    float: left;
+    width: 75%;
+}
+.usr-dtl h4 {
+    margin: 0 0 9px;
+	color:#777;
+	font-size:13px;
+}
+
+.usr-dtl h4 span:first-child{ color:#007CB8;}
+
+.ussr-rating {
+    margin: 0 0 7px;
+}
+.ussr-rating i {
+    color: gold;
+    font-size: 17px;
+}
+
+.review-form .form-horizontal .control-label{ text-align:left;}
+
+.review-form .form-horizontal .form-control {
+	height: 44px;
+	border: 1px solid #ccc;
+	border-radius: 0;
+	
+}
+
+
+.review-form .btn {
+	background: #333;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	text-transform: uppercase;
+	padding: 7px 23px;
+	box-shadow: 0 2px 0 0 #111;
+	transition: all 0.4s ease 0s;
+	margin: 20px 0 0 0;
+}
+
+.review-form .radio-inline input[type="radio"] {
+    position: inherit;
+    margin-top: 4px\9;
+    margin-left: -20px;
+    width: 40px;
+}
+
+.review-form .radio-inline{ padding-left:0;}
+
+.review-form .radio-inline span {
+    margin: 0 18px 0 0;
+}
+
+
+
+
+.review-form .btn:hover{ background:#007CB8;}
+
+.pro-description {
+    margin: 21px 0 0;
+}
+.pro-description .table thead tr th {
+    background: #3b4850 none repeat scroll 0 0;
+    border: medium none;
+    color: #fff;
+    font-weight: 600;
+}
+.pro-description .table tbody tr:nth-child(2n) {
+    background: #ececec none repeat scroll 0 0;
+}
+.pro-description .table tbody tr td {
+    border: medium none;
+}
+selectorSavingError {
+    background: #fff none repeat scroll 0 0;
+}
+.pro-description .table tbody tr:nth-child(2n+1) {
+    background: #f5f5f5 none repeat scroll 0 0;
+}
+
